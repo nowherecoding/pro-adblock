@@ -75,14 +75,14 @@ function padb_detector()
             }
             // show the modal if adblocker is disabled
             function adBlockNotDetected() {
-                if (!$.cookie('padb_accepted')) {
+                if (!Cookies.set('padb_accepted')) {
                     $('#padb-modal').show();
                     // generate cookie if user closes modal
                     $('#padb-modal-close').click(function () {
                         $('#padb-modal').slideUp('slow');
                         var date = new Date();
                         date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
-                        $.cookie('padb_accepted', true, {expires: date, path: '/'});
+                        Cookies.set('padb_accepted', true, {expires: date, path: '/'});
                     });
                 } else {
                     $('#padb-modal').hide();
@@ -105,7 +105,7 @@ function padb_detector()
 function padb_scripts()
 {
     wp_enqueue_style('padb', PADB_URL . 'assets/css/padb-style.min.css', false, WP_PADB_VERSION, 'all');
-    wp_enqueue_script('jquery-cookie', PADB_URL . 'assets/js/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
+    wp_enqueue_script('js-cookie', PADB_URL . 'assets/js/js.cookie.min.js', array('jquery'), '2.0.4', true);
     wp_enqueue_script('blockadblock', PADB_URL . 'assets/js/blockadblock.js', array('jquery'), '2.3.0', true);
 }
 
