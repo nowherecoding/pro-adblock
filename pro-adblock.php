@@ -69,13 +69,18 @@ function padb_detector()
     ?>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
+            // mobile device detection
+            var isMobile = false; //initiate as false
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent.substr(0, 4))) {
+                isMobile = true;
+            }
             // hide the modal if adblocker is enabled
             function adBlockDetected() {
                 $('#padb-modal').hide();
             }
             // show the modal if adblocker is disabled
             function adBlockNotDetected() {
-                if (!Cookies.set('padb_accepted')) {
+                if (!Cookies.set('padb_accepted') && !isMobile) {
                     $('#padb-modal').show();
                     // generate cookie if user closes modal
                     $('#padb-modal-close').click(function () {
