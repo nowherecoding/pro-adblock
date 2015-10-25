@@ -1,76 +1,115 @@
 <?php
-
 /*
   Plugin Name: Pro-Adblock
   Plugin URI: https://github.com/crxproject/pro-adblock/
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 0.9.1
+  Version: 0.9.2
   License: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-function adforce_css()
-{
-    echo'<style>
-    #ad-space {
-      opacity:    0.95;
-      background: #000;
-      width:      100%;
-      height:     100%;
-      z-index:    10;
-      top:        0;
-      left:       0;
-      position:   fixed;
-    }
-    #ad-space-inner {
-      background:   #500;
-      text-align:   center;
-      margin:       10%;
-      padding:      20px 20px;
-      color:        #fff;
-      font-weight:  normal;
-      font-size:    14px;
-    }
-    #ad-space-inner h1 {
-      color:        #fff;
-      font-weight:  bold;
-      font-size:    48px;
-    }
-    #ad-space-inner a {
-      color:            #fff;
-      text-decoration:  underline;
-    }
-</style>';
+// SECURITY: Exit if accessed directly
+if (!defined('ABSPATH')) {
+    die('Direct acces not allowed!');
 }
 
-function adforce_overlay()
+// Constants
+define('WP_PADB_VERSION', '0.9.2');
+define('PADB_URL', plugin_dir_url(__FILE__));
+
+/**
+ * Custom css setup based on the users choice
+ */
+function padb_css()
 {
-    echo '<div id="ad-space">
-        <div id="ad-space-inner">
+    // in future versions
+}
+
+/**
+ *  Overlay generation
+ */
+function padb_overlay()
+{
+
+    // the modal
+    ?>
+    <div id="padb-modal">
+        <div id="padb-modal-inner"><div id="padb-modal-close"></div>
             <h1>OOPS!</h1>
             <p>
-                Es sieht so aus, als hättest du keinen Werbeblocker installiert. Das ist schlecht für dein Gehirn und manchmal auch für deinen Computer.
+                <?php _e('Es sieht so aus, als hättest du keinen Werbeblocker installiert. Das ist schlecht für dein Gehirn und manchmal auch für deinen Computer.', 'padb'); ?>
             </p>
 
             <p>
-                ' . sprintf('Bitte besuche eine der folgenden Seiten und installiere dir einen AdBlocker deiner Wahl, danach kannst du <em>%s</em> wieder ohne Einschränkungen genießen:', get_bloginfo('name')) . '
+                <?php echo sprintf(_e('Bitte besuche eine der folgenden Seiten und installiere dir einen AdBlocker deiner Wahl, danach kannst du <em>%s</em> wieder ohne Einschränkungen genießen:'), get_bloginfo('name')); ?>
             </p>
 
-            <p>
-                <strong>uBlock</strong>: <a href="https://www.ublock.org/">https://www.ublock.org/</a><br />
+            <p><!--list of adblockers-->
+                <strong><a href="https://www.ublock.org/">uBlock</a></strong><br />
 
-                <strong>AdBlock Plus</strong>: <a href="https://adblockplus.org/" target="_blank">https://adblockplus.org/</a><br />
+                <strong><a href="https://adblockplus.org/" target="_blank">AdBlock Plus</a></strong><br />
 
-                <strong>AdBlock Edge</strong>: für <a href="https://addons.mozilla.org/de/firefox/addon/adblock-edge/" target="_blank">Firefox</a><br />
+                <strong><a href="https://addons.mozilla.org/de/firefox/addon/adblock-edge/" target="_blank">AdBlock Edge (Firefox)</a></strong><br />
 
-                <strong>uMatrix</strong>: für <a href="https://addons.mozilla.org/firefox/addon/umatrix/" target="_blank">Firefox</a> &#124; <a href="https://chrome.google.com/webstore/detail/%C2%B5matrix/ogfcmafjalglgifnmanfmnieipoejdcf" target="_blank">Chrome</a> &#124; <a href="https://addons.opera.com/en-gb/extensions/details/umatrix/" target="_blank">Opera</a><br />
+                <strong><a href="https://github.com/gorhill/uMatrix" target="_blank">uMatrix</a></strong><br />
 
-                <strong>Adguard AdBlocker</strong>: <a href="https://adguard.com/en/adguard-adblock-browser-extension/overview.html" target="_blank">https://adguard.com/en/adguard-adblock-browser-extension/overview.html</a>
+                <strong><a href="https://adguard.com/en/adguard-adblock-browser-extension/overview.html" target="_blank">Adguard</a></strong>
             </p>
         </div>
-    </div>';
+    </div>
+    <?php
 }
 
-add_action('wp_head', 'adforce_css');
-add_action('wp_footer', 'adforce_overlay');
+/**
+ * Adblocker detection
+ */
+function padb_detector()
+{
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            // hide the modal if adblocker is enabled
+            function adBlockDetected() {
+                $('#padb-modal').hide();
+            }
+            // show the modal if adblocker is disabled
+            function adBlockNotDetected() {
+                if (!$.cookie('padb_accepted')) {
+                    $('#padb-modal').show();
+                    // generate cookie if user closes modal
+                    $('#padb-modal-close').click(function () {
+                        $('#padb-modal').slideUp('slow');
+                        var date = new Date();
+                        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+                        $.cookie('padb_accepted', true, {expires: date, path: '/'});
+                    });
+                } else {
+                    $('#padb-modal').hide();
+                }
+            }
+            if (typeof blockAdBlock === 'undefined') {
+                adBlockDetected();
+            } else {
+                blockAdBlock.setOption({debug: true});
+                blockAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+            }
+        });
+    </script>
+    <?php
+}
+
+/**
+ * Scripts & Styles enqueueing
+ */
+function padb_scripts()
+{
+    wp_enqueue_style('padb', PADB_URL . 'assets/css/padb-style.min.css', false, WP_PADB_VERSION, 'all');
+    wp_enqueue_script('jquery-cookie', PADB_URL . 'assets/js/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
+    wp_enqueue_script('blockadblock', PADB_URL . 'assets/js/blockadblock.js', array('jquery'), '2.3.0', true);
+}
+
+add_action('wp_head', 'padb_css');
+add_action('wp_footer', 'padb_overlay');
+add_action('wp_footer', 'padb_detector');
+add_action('wp_enqueue_scripts', 'padb_scripts');
