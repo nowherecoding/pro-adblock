@@ -102,7 +102,7 @@ function padb_detector()
 /**
  * Scripts & Styles enqueueing
  */
-function padb_scripts()
+function padb_enqueue_scripts()
 {
     wp_enqueue_style('padb', PADB_URL . 'assets/css/padb-style.min.css', false, WP_PADB_VERSION, 'all');
     wp_enqueue_script('js-cookie', PADB_URL . 'assets/js/js.cookie.min.js', array('jquery'), '2.0.4', true);
