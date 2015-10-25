@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Pro-Adblock
+  Plugin Name: ProAdBlock
   Plugin URI: https://github.com/crxproject/pro-adblock/
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
@@ -42,7 +42,7 @@ function padb_overlay()
             </p>
 
             <p>
-                <?php echo sprintf(_e('Bitte besuche eine der folgenden Seiten und installiere dir einen AdBlocker deiner Wahl, danach kannst du <em>%s</em> wieder ohne Einschränkungen genießen:'), get_bloginfo('name')); ?>
+                <?php echo sprintf(_e('Bitte besuche eine der folgenden Seiten und installiere dir einen AdBlocker deiner Wahl, danach kannst du <em>%s</em> wieder ohne Einschränkungen genießen:', 'padb'), get_bloginfo('name')); ?>
             </p>
 
             <p><!--list of adblockers-->
@@ -105,7 +105,7 @@ function padb_detector()
 }
 
 /**
- * Scripts & Styles enqueueing
+ * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts()
 {
@@ -117,4 +117,4 @@ function padb_enqueue_scripts()
 add_action('wp_head', 'padb_css');
 add_action('wp_footer', 'padb_overlay');
 add_action('wp_footer', 'padb_detector');
-add_action('wp_enqueue_scripts', 'padb_scripts');
+add_action('wp_enqueue_scripts', 'padb_enqueue_scripts');
