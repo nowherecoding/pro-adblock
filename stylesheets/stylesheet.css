@@ -5,12 +5,12 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #393939; }
 
 a {
-  color: #1e6bb8;
+  color: #1AAA3B;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
