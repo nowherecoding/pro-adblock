@@ -71,7 +71,7 @@ function padb_detector()
         jQuery(document).ready(function ($) {
             // mobile device detection
             var isMobile = false; //initiate as false
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent.substr(0, 4))) {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 isMobile = true;
             }
             // hide the modal if adblocker is enabled
