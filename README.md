@@ -1,4 +1,4 @@
-# Pro-Adblock
+# Pro-AdBlock
 
 Advertising displayed on webpages can be a security risk. This WordPress plugin shows a warning message to users that have no adblocker enabled.
 
