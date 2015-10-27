@@ -5,17 +5,17 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 0.9.3
+  Version: 0.9.4
   License: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 // SECURITY: Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-    die( 'Direct acces not allowed!' );
+    die( 'Direct access not allowed!' );
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '0.9.3' );
+define( 'WP_PADB_VERSION', '0.9.4' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 /**
@@ -64,6 +64,8 @@ function padb_overlay() {
  */
 function padb_detector() {
     ?>
+    <script>var adBlockDetected = true;</script>
+    <script src="<?php echo PADB_URL; ?>gads.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
     	// mobile device detection
@@ -72,11 +74,11 @@ function padb_detector() {
     	    isMobile = true;
     	}
     	// hide the modal if adblocker is enabled
-    	function adBlockDetected() {
+    	if (adBlockDetected) {
     	    $('#padb-modal').hide();
     	}
     	// show the modal if adblocker is disabled
-    	function adBlockNotDetected() {
+    	else {
     	    if (!Cookies.set('padb_accepted') && !isMobile) {
     		$('#padb-modal').show();
     		// generate cookie if user closes modal
@@ -90,12 +92,6 @@ function padb_detector() {
     		$('#padb-modal').hide();
     	    }
     	}
-    	if (typeof blockAdBlock === 'undefined') {
-    	    adBlockDetected();
-    	} else {
-    	    blockAdBlock.setOption({debug: true});
-    	    blockAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
-    	}
         });
     </script>
     <?php
@@ -106,8 +102,7 @@ function padb_detector() {
  */
 function padb_enqueue_scripts() {
     wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style.min.css', false, WP_PADB_VERSION, 'all' );
-    wp_enqueue_script( 'js-cookie', PADB_URL . 'assets/js/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
-    wp_enqueue_script( 'blockadblock', PADB_URL . 'assets/js/blockadblock.js', array( 'jquery' ), '2.3.0', true );
+    wp_enqueue_script( 'js-cookie', PADB_URL . 'vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
 }
 
 add_action( 'wp_head', 'padb_css' );
