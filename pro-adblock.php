@@ -5,107 +5,239 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 0.9.4
+  Version: 0.9.5
   License: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 // SECURITY: Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-    die( 'Direct access not allowed!' );
+	die( 'Direct access not allowed!' );
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '0.9.4' );
+define( 'WP_PADB_VERSION', '0.9.5' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 /**
  * Custom css setup based on the users choice
  */
 function padb_css() {
-    // in future versions
+
+	// set the default color if the value doesn't exist in the db
+	$default = padb_get_option( 'padb_settings' );
+	$colors	 = get_option( 'padb_settings', $default );
+	?>
+	<!-- ProAdBlock Custom CSS -->
+	<style type="text/css">
+		#padb-modal-box {
+			background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
+			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
+		}
+
+		#padb-modal-box h1 {
+			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
+		}
+
+		#padb-modal-box a {
+			color: #<?php echo $colors[ 'modal_link_color' ]; ?>;
+		}
+
+		#padb-modal-box a:hover {
+			color: #<?php echo $colors[ 'modal_link_color_hover' ]; ?>;
+		}
+	</style>
+	<?php
 }
 
 /**
  *  Overlay generation
  */
 function padb_overlay() {
-
-    // the modal
-    ?>
-    <div id="padb-modal">
-        <div id="padb-modal-inner"><div id="padb-modal-close"></div>
-    	<h1>OOPS!</h1>
-    	<p>
-		<?php _e( 'Es sieht so aus, als hättest du keinen Werbeblocker installiert. Das ist schlecht für dein Gehirn und manchmal auch für deinen Computer.', 'padb' ); ?>
-    	</p>
-
-    	<p>
-		<?php echo sprintf( _e( 'Bitte besuche eine der folgenden Seiten und installiere dir einen AdBlocker deiner Wahl, danach kannst du <em>%s</em> wieder ohne Einschränkungen genießen:', 'padb' ), get_bloginfo( 'name' ) ); ?>
-    	</p>
-
-    	<p><!--list of adblockers-->
-    	    <strong><a href="https://www.ublock.org/">uBlock</a></strong><br />
-
-    	    <strong><a href="https://adblockplus.org/" target="_blank">AdBlock Plus</a></strong><br />
-
-    	    <strong><a href="https://addons.mozilla.org/de/firefox/addon/adblock-edge/" target="_blank">AdBlock Edge (Firefox)</a></strong><br />
-
-    	    <strong><a href="https://github.com/gorhill/uMatrix" target="_blank">uMatrix</a></strong><br />
-
-    	    <strong><a href="https://adguard.com/en/adguard-adblock-browser-extension/overview.html" target="_blank">Adguard</a></strong>
-    	</p>
-        </div>
-    </div>
-    <?php
+	$default = padb_get_option( 'padb_settings' );
+	$options = get_option( 'padb_settings', $default );
+	// the modal
+	?>
+	<div id="padb-modal-overlay">
+		<div id="padb-modal-box">
+			<?php echo wpautop( $options[ 'modal_message' ] ); ?>
+			<div id="padb-modal-box-footer"><span class="padb-modal-close"><?php echo __( 'Close' ); ?></span></div>
+		</div>
+	</div>
+	<?php
 }
 
 /**
  * Adblocker detection
  */
 function padb_detector() {
-    ?>
-    <script>var adBlockDetected = true;</script>
-    <script src="<?php echo PADB_URL; ?>gads.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-    	// mobile device detection
-    	var isMobile = false; //initiate as false
-    	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    	    isMobile = true;
-    	}
-    	// hide the modal if adblocker is enabled
-    	if (adBlockDetected) {
-    	    $('#padb-modal').hide();
-    	}
-    	// show the modal if adblocker is disabled
-    	else {
-    	    if (!Cookies.set('padb_accepted') && !isMobile) {
-    		$('#padb-modal').show();
-    		// generate cookie if user closes modal
-    		$('#padb-modal-close').click(function () {
-    		    $('#padb-modal').slideUp('slow');
-    		    var date = new Date();
-    		    date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
-    		    Cookies.set('padb_accepted', true, {expires: date, path: '/'});
-    		});
-    	    } else {
-    		$('#padb-modal').hide();
-    	    }
-    	}
-        });
-    </script>
-    <?php
+	?>
+	<script>var blockerDetected = true;</script>
+	<script src="<?php echo PADB_URL; ?>gads.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			// mobile device detection
+			var isMobile = false; //initiate as false
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				isMobile = true;
+			}
+			// hide the modal if adblocker is enabled
+			if (blockerDetected) {
+				$('#padb-modal-overlay').hide();
+			}
+			// show the modal if adblocker is disabled
+			else {
+				if (!Cookies.set('padb_accepted') && !isMobile) {
+					$('#padb-modal-overlay').show();
+					// generate cookie if user closes modal
+					$('.padb-modal-close').click(function () {
+						$('#padb-modal-overlay').slideUp('slow');
+						var date = new Date();
+						date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+						Cookies.set('padb_accepted', true, {expires: date, path: '/'});
+					});
+				} else {
+					$('#padb-modal-overlay').hide();
+				}
+			}
+		});
+	</script>
+	<?php
 }
 
 /**
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
-    wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style.min.css', false, WP_PADB_VERSION, 'all' );
-    wp_enqueue_script( 'js-cookie', PADB_URL . 'vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
+	wp_enqueue_style( 'padb', PADB_URL . 'css/padb-style.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_script( 'js-cookie', PADB_URL . 'vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
 }
 
 add_action( 'wp_head', 'padb_css' );
 add_action( 'wp_footer', 'padb_overlay' );
 add_action( 'wp_footer', 'padb_detector' );
 add_action( 'wp_enqueue_scripts', 'padb_enqueue_scripts' );
+
+/* * *****************************************************************************
+ * Admin section
+ * **************************************************************************** */
+
+add_action( 'admin_menu', 'padb_add_admin_menu' );
+add_action( 'admin_init', 'padb_settings_init' );
+
+function padb_add_admin_menu() {
+	add_options_page( 'Pro-AdBlock Settings', 'Pro-AdBlock', 'manage_options', 'pro-adblock-options', 'padb_options_page' );
+}
+
+function padb_settings_init() {
+	register_setting( 'pluginPage1', 'padb_settings' );
+	register_setting( 'pluginPage2', 'padb_settings' );
+
+	add_settings_section(
+			'padb_pluginPage_section_0', __( 'Message', 'proadblock' ), 'padb_settings_section_callback_1', 'pluginPage1'
+	);
+
+	add_settings_field(
+			'modal_message', __( 'Text', 'proadblock' ), 'padb_message_render', 'pluginPage1', 'padb_pluginPage_section_0'
+	);
+
+	add_settings_section(
+			'padb_pluginPage_section_1', __( 'Appearance', 'proadblock' ), 'padb_settings_section_callback_2', 'pluginPage2'
+	);
+
+	add_settings_field(
+			'modal_box_bg_color', __( 'Text box background color', 'proadblock' ), 'padb_box_bg_color_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
+
+	add_settings_field(
+			'modal_font_color', __( 'Font color', 'proadblock' ), 'padb_font_color_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
+
+	add_settings_field(
+			'modal_link_color', __( 'Link color', 'proadblock' ), 'padb_link_color_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
+
+	add_settings_field(
+			'modal_link_color_hover', __( 'Link hover color', 'proadblock' ), 'padb_link_color_hover_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
+}
+
+function padb_message_render() {
+	$default = padb_get_option( 'modal_message' );
+	$options = get_option( 'padb_settings', $default );
+	?>
+	<textarea rows='15' name='padb_settings[modal_message]' class='large-text code'><?php echo $options[ 'modal_message' ]; ?></textarea>
+	<?php
+}
+
+function padb_box_bg_color_render() {
+	$default = padb_get_option( 'modal_box_bg_color' );
+	$options = get_option( 'padb_settings', $default );
+	?>
+	<input type='text' name='padb_settings[modal_box_bg_color]' value='<?php echo $options[ 'modal_box_bg_color' ]; ?>' />
+	<?php
+}
+
+function padb_font_color_render() {
+	$default = padb_get_option( 'modal_font_color' );
+	$options = get_option( 'padb_settings', $default );
+	?>
+	<input type='text' name='padb_settings[modal_font_color]' value='<?php echo $options[ 'modal_font_color' ]; ?>' />
+	<?php
+}
+
+function padb_link_color_render() {
+	$default = padb_get_option( 'modal_link_color' );
+	$options = get_option( 'padb_settings', $default );
+	?>
+	<input type='text' name='padb_settings[modal_link_color]' value='<?php echo $options[ 'modal_link_color' ]; ?>' />
+	<?php
+}
+
+function padb_link_color_hover_render() {
+	$default = padb_get_option( 'modal_link_color_hover' );
+	$options = get_option( 'padb_settings', $default );
+	?>
+	<input type='text' name='padb_settings[modal_link_color_hover]' value='<?php echo $options[ 'modal_link_color_hover' ]; ?>' />
+	<?php
+}
+
+function padb_settings_section_callback_1() {
+	echo __( 'Display a custom text to users that have no adblocker enabled.', 'proadblock' );
+}
+
+function padb_settings_section_callback_2() {
+	echo __( 'Set custom colors and modal size', 'proadblock' );
+}
+
+function padb_options_page() {
+	?>
+	<div class="wrap">
+		<h1>Pro-AdBlock Settings</h1>
+
+		<form action='options.php' method='post'>
+
+			<?php
+			settings_fields( 'pluginPage1' );
+			do_settings_sections( 'pluginPage1' );
+			settings_fields( 'pluginPage2' );
+			do_settings_sections( 'pluginPage2' );
+			submit_button();
+			?>
+
+		</form>
+	</div>
+	<?php
+}
+
+// Default plugin settings
+function padb_get_option( $values ) {
+	$values = array(
+		'modal_message'			 => "<h1>Advertising displayed on webpages can be a security risk. Please consider to use an Adblocker!</h1>\r\n\r\nThis site explicitly supports the usage of advertisement blockers. A listing of adblockers can be found here:\r\n\r\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\r\n\r\nThank you for your attention.",
+		'modal_box_bg_color'	 => 'D32F2E',
+		'modal_font_color'		 => 'FFFFFF',
+		'modal_link_color'		 => 'FFFFFF',
+		'modal_link_color_hover' => 'FFFFFF'
+	);
+
+	return $values;
+}
