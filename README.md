@@ -8,7 +8,12 @@ Download the [latest release](https://github.com/crxproject/pro-adblock/releases
 
 ## Changelog
 
-### v.0.9.4
+### v0.9.5
+
+* WP plugin options page integrated that let users to customise the modal text and appearance.
+* Minor code changes
+
+### v0.9.4
 
 * WordPress coding standards applied
 * Adblocker detection simplified
