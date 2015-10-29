@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 0.9.5
+  Version: 1.0.0
   License: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -15,8 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '0.9.5' );
+define( 'WP_PADB_VERSION', '1.0.0' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
+
+// load the plugin's translated strings
+load_plugin_textdomain( 'proadblock', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 /**
  * Custom css setup based on the users choice
@@ -212,7 +215,7 @@ function padb_settings_section_callback_2() {
 function padb_options_page() {
 	?>
 	<div class="wrap">
-		<h1>Pro-AdBlock Settings</h1>
+		<h1><?php echo __( 'Pro-AdBlock Settings', 'proadblock' ); ?></h1>
 
 		<form action='options.php' method='post'>
 

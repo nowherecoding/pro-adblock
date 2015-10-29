@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pro-AdBlock\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-29 18:18+0100\n"
+"PO-Revision-Date: 2015-10-29 19:30+0100\n"
+"Last-Translator: Sergej Theiss\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: nbproject\n"
+
+#: pro-adblock.php:65
+msgid "You can close this now"
+msgstr "Du kannst die Box jetzt schließen"
+
+#: pro-adblock.php:138
+msgid "Message"
+msgstr "Mitteilung"
+
+#: pro-adblock.php:142
+msgid "Text"
+msgstr "Text"
+
+#: pro-adblock.php:146
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+#: pro-adblock.php:150
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: pro-adblock.php:154
+msgid "Font color"
+msgstr "Schriftfarbe"
+
+#: pro-adblock.php:158
+msgid "Link color"
+msgstr "Linkfarbe"
+
+#: pro-adblock.php:162
+msgid "Link hover color"
+msgstr "Linkfarbe (hover)"
+
+#: pro-adblock.php:207
+msgid "Display a custom text to users that have no adblocker enabled."
+msgstr ""
+"Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
+"Text."
+
+#: pro-adblock.php:211
+msgid "Set custom colors for the modal box."
+msgstr "Definiere eigene Farben für die Modalbox."
+
+#: pro-adblock.php:217
+msgid "Pro-AdBlock Settings"
+msgstr "Pro-AdBlock Einstellungen"
