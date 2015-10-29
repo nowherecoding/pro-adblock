@@ -58,9 +58,9 @@ function padb_overlay() {
 	// the modal
 	?>
 	<div id="padb-modal-overlay">
-		<div id="padb-modal-box">
+		<div id="padb-modal-box"><div id="padb-modal-box-header" class="padb-modal-close"></div>
 			<?php echo wpautop( $options[ 'modal_message' ] ); ?>
-			<div id="padb-modal-box-footer"><span class="padb-modal-close"><?php echo __( 'Close' ); ?></span></div>
+			<div id="padb-modal-box-footer" class="padb-modal-close"><span>&#10008; <?php echo __( 'You can close this now', 'proadblock' ); ?></span></div>
 		</div>
 	</div>
 	<?php
@@ -90,7 +90,7 @@ function padb_detector() {
 					$('#padb-modal-overlay').show();
 					// generate cookie if user closes modal
 					$('.padb-modal-close').click(function () {
-						$('#padb-modal-overlay').slideUp('slow');
+						$('#padb-modal-overlay').fadeOut('slow');
 						var date = new Date();
 						date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
 						Cookies.set('padb_accepted', true, {expires: date, path: '/'});
@@ -145,7 +145,7 @@ function padb_settings_init() {
 	);
 
 	add_settings_field(
-			'modal_box_bg_color', __( 'Text box background color', 'proadblock' ), 'padb_box_bg_color_render', 'pluginPage2', 'padb_pluginPage_section_1'
+			'modal_box_bg_color', __( 'Background color', 'proadblock' ), 'padb_box_bg_color_render', 'pluginPage2', 'padb_pluginPage_section_1'
 	);
 
 	add_settings_field(
@@ -206,7 +206,7 @@ function padb_settings_section_callback_1() {
 }
 
 function padb_settings_section_callback_2() {
-	echo __( 'Set custom colors and modal size', 'proadblock' );
+	echo __( 'Set custom colors for the modal box.', 'proadblock' );
 }
 
 function padb_options_page() {
@@ -232,7 +232,7 @@ function padb_options_page() {
 // Default plugin settings
 function padb_get_option( $values ) {
 	$values = array(
-		'modal_message'			 => "<h1>Advertising displayed on webpages can be a security risk. Please consider to use an Adblocker!</h1>\r\n\r\nThis site explicitly supports the usage of advertisement blockers. A listing of adblockers can be found here:\r\n\r\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\r\n\r\nThank you for your attention.",
+		'modal_message'			 => "<h1>You are not using an Adblocker!</h1>\r\n\r\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! You can find a listing of adblockers here:\r\n\r\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\r\n\r\nThank you for your attention.",
 		'modal_box_bg_color'	 => 'D32F2E',
 		'modal_font_color'		 => 'FFFFFF',
 		'modal_link_color'		 => 'FFFFFF',
