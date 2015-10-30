@@ -235,7 +235,7 @@ function padb_options_page() {
 // Default plugin settings
 function padb_get_option( $values ) {
 	$values = array(
-		'modal_message'			 => "<h1>You are not using an Adblocker!</h1>\r\n\r\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! You can find a listing of adblockers here:\r\n\r\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\r\n\r\nThank you for your attention.",
+		'modal_message'			 => __( "<h1>You are not using an Adblocker!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
 		'modal_box_bg_color'	 => 'D32F2E',
 		'modal_font_color'		 => 'FFFFFF',
 		'modal_link_color'		 => 'FFFFFF',
