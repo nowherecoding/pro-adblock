@@ -93,7 +93,7 @@ function padb_detector() {
 					$('.padb-modal-close').click(function () {
 						$('#padb-modal-overlay').fadeOut('slow');
 						var date = new Date();
-						date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+						date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);
 						Cookies.set('padb_accepted', true, {expires: date, path: '/'});
 					});
 				} else {
