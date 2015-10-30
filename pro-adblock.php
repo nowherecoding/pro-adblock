@@ -26,9 +26,8 @@ load_plugin_textdomain( 'proadblock', false, dirname( plugin_basename( __FILE__ 
  */
 function padb_css() {
 
-	// set the default color if the value doesn't exist in the db
-	$default = padb_get_option( 'padb_settings' );
-	$colors	 = get_option( 'padb_settings', $default );
+	// autogenerate colors from db
+	$colors = padb_get_option( 'padb_settings' );
 	?>
 	<!-- ProAdBlock Custom CSS -->
 	<style type="text/css">
@@ -56,8 +55,7 @@ function padb_css() {
  *  Overlay generation
  */
 function padb_overlay() {
-	$default = padb_get_option( 'padb_settings' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	// the modal
 	?>
 	<div id="padb-modal-overlay">
@@ -165,40 +163,35 @@ function padb_settings_init() {
 }
 
 function padb_message_render() {
-	$default = padb_get_option( 'modal_message' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	?>
 	<textarea rows='15' name='padb_settings[modal_message]' class='large-text code'><?php echo $options[ 'modal_message' ]; ?></textarea>
 	<?php
 }
 
 function padb_box_bg_color_render() {
-	$default = padb_get_option( 'modal_box_bg_color' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	?>
 	<input type='text' name='padb_settings[modal_box_bg_color]' value='<?php echo $options[ 'modal_box_bg_color' ]; ?>' />
 	<?php
 }
 
 function padb_font_color_render() {
-	$default = padb_get_option( 'modal_font_color' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	?>
 	<input type='text' name='padb_settings[modal_font_color]' value='<?php echo $options[ 'modal_font_color' ]; ?>' />
 	<?php
 }
 
 function padb_link_color_render() {
-	$default = padb_get_option( 'modal_link_color' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	?>
 	<input type='text' name='padb_settings[modal_link_color]' value='<?php echo $options[ 'modal_link_color' ]; ?>' />
 	<?php
 }
 
 function padb_link_color_hover_render() {
-	$default = padb_get_option( 'modal_link_color_hover' );
-	$options = get_option( 'padb_settings', $default );
+	$options = padb_get_option( 'padb_settings' );
 	?>
 	<input type='text' name='padb_settings[modal_link_color_hover]' value='<?php echo $options[ 'modal_link_color_hover' ]; ?>' />
 	<?php
@@ -234,7 +227,7 @@ function padb_options_page() {
 
 // Default plugin settings
 function padb_get_option( $values ) {
-	$values = array(
+	$defaults = array(
 		'modal_message'			 => __( "<h1>You are not using an Adblocker!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
 		'modal_box_bg_color'	 => 'D32F2E',
 		'modal_font_color'		 => 'FFFFFF',
@@ -242,5 +235,7 @@ function padb_get_option( $values ) {
 		'modal_link_color_hover' => 'FFFFFF'
 	);
 
-	return $values;
+	$output = get_option( $values, $defaults );
+
+	return $output;
 }
