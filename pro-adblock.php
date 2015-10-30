@@ -31,6 +31,12 @@ function padb_css() {
 	?>
 	<!-- ProAdBlock Custom CSS -->
 	<style type="text/css">
+	<?php if ( $colors[ 'modal_style' ] == 2 ) { // needed for fully locked screen style ?>
+			#padb-modal-overlay {
+				background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
+			}
+	<?php } ?>
+
 		#padb-modal-box {
 			background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
 			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
@@ -109,7 +115,9 @@ function padb_detector() {
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
-	wp_enqueue_style( 'padb', PADB_URL . 'css/padb-style.css', false, WP_PADB_VERSION, 'all' );
+	// set the style id
+	$style = padb_get_option( 'padb_settings' );
+	wp_enqueue_style( 'padb', PADB_URL . 'css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script( 'js-cookie', PADB_URL . 'vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
 }
 
@@ -160,6 +168,10 @@ function padb_settings_init() {
 	add_settings_field(
 			'modal_link_color_hover', __( 'Link hover color', 'proadblock' ), 'padb_link_color_hover_render', 'pluginPage2', 'padb_pluginPage_section_1'
 	);
+
+	add_settings_field(
+			'modal_style', __( 'Modal style', 'proadblock' ), 'padb_select_modal_style_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
 }
 
 function padb_message_render() {
@@ -197,6 +209,16 @@ function padb_link_color_hover_render() {
 	<?php
 }
 
+function padb_select_modal_style_render() {
+	$options = padb_get_option( 'padb_settings' );
+	?>
+	<select name='padb_settings[modal_style]'>
+		<option value='1'<?php selected( $options[ 'modal_style' ], 1 ); ?>><?php echo __( 'Box w/ transparent background', 'proadblock' ); ?></option>
+		<option value='2'<?php selected( $options[ 'modal_style' ], 2 ); ?>><?php echo __( 'Fully locked screen', 'proadblock' ); ?></option>
+	</select>
+	<?php
+}
+
 function padb_settings_section_callback_1() {
 	echo __( 'Display a custom text to users that have no adblocker enabled.', 'proadblock' );
 }
@@ -225,14 +247,21 @@ function padb_options_page() {
 	<?php
 }
 
-// Default plugin settings
+/**
+ * Default plugin settings
+ *
+ * @param type $values
+ * @return type
+ */
 function padb_get_option( $values ) {
+	// loaded when no entry in database
 	$defaults = array(
 		'modal_message'			 => __( "<h1>You are not using an Adblocker!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
-		'modal_box_bg_color'	 => 'D32F2E',
+		'modal_box_bg_color'	 => 'E89900',
 		'modal_font_color'		 => 'FFFFFF',
 		'modal_link_color'		 => 'FFFFFF',
-		'modal_link_color_hover' => 'FFFFFF'
+		'modal_link_color_hover' => 'FFFFFF',
+		'modal_style'			 => '1'
 	);
 
 	$output = get_option( $values, $defaults );

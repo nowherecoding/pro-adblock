@@ -8,6 +8,14 @@ Download the [latest release](https://github.com/crxproject/pro-adblock/releases
 
 ## Changelog
 
+### v1.0.0
+
+* Style switcher added and modal box appearance improved
+* Plugin localization added
+* Plugin settings call up improved
+* Cookie validity period shortened
+* Minor code changes
+
 ### v0.9.5
 
 * WP plugin options page integrated that let users to customize the modal text and appearance.
