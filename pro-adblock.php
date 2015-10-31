@@ -117,8 +117,8 @@ function padb_detector() {
 function padb_enqueue_scripts() {
 	// set the style id
 	$style = padb_get_option( 'padb_settings' );
-	wp_enqueue_style( 'padb', PADB_URL . 'css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
-	wp_enqueue_script( 'js-cookie', PADB_URL . 'vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
+	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_script( 'js-cookie', PADB_URL . 'assets/vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
 }
 
 add_action( 'wp_head', 'padb_css' );
