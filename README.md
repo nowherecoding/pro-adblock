@@ -1,12 +1,20 @@
 # Pro-AdBlock
 
-Advertising displayed on webpages can be a security risk. This WordPress plugin shows a warning message to users that have no adblocker enabled.
+Advertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a user's surfing. This plugin supports the usage of advertisement blockers and shows a warning message to users that have no adblocker enabled.
 
-## Getting started
+## Installation
 
-Download the [latest release](https://github.com/crxproject/pro-adblock/releases/latest) and extract the archive, then copy the extracted folder to your wordpress plugins directory.
+1. Download the [latest release](https://github.com/crxproject/pro-adblock/releases/latest) and extract the archive, then copy the extracted folder to your WordPress plugins directory, either by uploading it via FTP or by using the "Add Plugin" function of WordPress.
+2. Activate the plugin at the plugin administration page.
+3. If you want: Open the plugin configuration page, which is located under Settings -> Pro-AdBlock and customize settings like displayed text, font color and background color.
 
 ## Changelog
+
+### v1.0.1
+
+* Directory tree rearranged
+* Cookie generation using 'wpCookies'
+* Modal appearance improved
 
 ### v1.0.0
 
@@ -48,7 +56,3 @@ Download the [latest release](https://github.com/crxproject/pro-adblock/releases
 ### v0.9.0
 
 * Initial release
-
-## Credits
-
-Pro-AdBlock makes use of [JavaScript Cookie](https://github.com/js-cookie/js-cookie) by Klaus Hartl & Fagner Brack
