@@ -4,7 +4,7 @@ Advertising displayed on webpages can be a security risk. This WordPress plugin 
 
 ## Getting started
 
-Download the [latest release](https://github.com/crxproject/pro-adblock/releases/tag/v0.9.5) and extract the archive, then copy the extracted folder to your wordpress plugins directory.
+Download the [latest release](https://github.com/crxproject/pro-adblock/releases/latest) and extract the archive, then copy the extracted folder to your wordpress plugins directory.
 
 ## Changelog
 
