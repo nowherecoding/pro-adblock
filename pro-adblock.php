@@ -5,8 +5,25 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 1.0.0
+  Version: 1.0.1
   License: http://www.gnu.org/licenses/gpl-2.0.html
+  
+  Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
+  Copyright (C) 2015  Sergej Theiss
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 // SECURITY: Exit if accessed directly
@@ -15,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '1.0.0' );
+define( 'WP_PADB_VERSION', '1.0.1' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
@@ -81,9 +98,10 @@ function padb_detector() {
 	<script>var blockerDetected = true;</script>
 	<script src="<?php echo PADB_URL; ?>gads.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function ($) {
+		jQuery(document).ready(function($) {
 			// mobile device detection
 			var isMobile = false; //initiate as false
+			// excluded b/c currently there are not many adblockers for mobile platforms
 			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 				isMobile = true;
 			}
@@ -93,14 +111,13 @@ function padb_detector() {
 			}
 			// show the modal if adblocker is disabled
 			else {
-				if (!Cookies.set('padb_accepted') && !isMobile) {
+				if (!wpCookies.get('padb_accepted') && !isMobile) {
 					$('#padb-modal-overlay').show();
 					// generate cookie if user closes modal
-					$('.padb-modal-close').click(function () {
+					$('.padb-modal-close').click(function() {
 						$('#padb-modal-overlay').fadeOut('slow');
-						var date = new Date();
-						date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);
-						Cookies.set('padb_accepted', true, {expires: date, path: '/'});
+						var date = 7 * 24 * 60 * 60; // set cookie to expire after 7 days
+						wpCookies.set('padb_accepted', true, date, '/');
 					});
 				} else {
 					$('#padb-modal-overlay').hide();
@@ -118,7 +135,7 @@ function padb_enqueue_scripts() {
 	// set the style id
 	$style = padb_get_option( 'padb_settings' );
 	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
-	wp_enqueue_script( 'js-cookie', PADB_URL . 'assets/vendors/js.cookie.min.js', array( 'jquery' ), '2.0.4', true );
+	wp_enqueue_script( 'utils' );
 }
 
 add_action( 'wp_head', 'padb_css' );
