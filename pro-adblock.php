@@ -83,8 +83,8 @@ function padb_overlay() {
 	?>
 	<div id="padb-modal-overlay">
 		<div id="padb-modal-box"><div id="padb-modal-box-header" class="padb-modal-close"></div>
-			<?php echo wpautop( $options[ 'modal_message' ] ); ?>
-			<div id="padb-modal-box-footer" class="padb-modal-close"><span>&#10008; <?php echo __( 'You can close this now', 'proadblock' ); ?></span></div>
+			<div id="padb-modal-box-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
+			<div id="padb-modal-box-footer" class="padb-modal-close"><span>&#10008; <?php echo __( 'Click here to enter this site now', 'proadblock' ); ?></span></div>
 		</div>
 	</div>
 	<?php

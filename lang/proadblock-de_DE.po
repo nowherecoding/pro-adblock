@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 11:40+0100\n"
-"PO-Revision-Date: 2015-10-30 12:02+0100\n"
+"POT-Creation-Date: 2015-11-01 21:37+0100\n"
+"PO-Revision-Date: 2015-11-01 21:37+0100\n"
 "Last-Translator: Sergej Theiss\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -18,53 +18,65 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: nbproject\n"
 
-#: __pro-adblock.php:66 pro-adblock.php:70
-msgid "You can close this now"
-msgstr "Du kannst die Box jetzt schließen"
+#: pro-adblock.php:87
+msgid "Click here to enter this site now"
+msgstr "Hier klicken, um auf die Webseite zu gelangen"
 
-#: __pro-adblock.php:139 pro-adblock.php:145
+#: pro-adblock.php:162
 msgid "Message"
 msgstr "Mitteilung"
 
-#: __pro-adblock.php:143 pro-adblock.php:149
+#: pro-adblock.php:166
 msgid "Text"
 msgstr "Text"
 
-#: __pro-adblock.php:147 pro-adblock.php:153
+#: pro-adblock.php:170
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: __pro-adblock.php:151 pro-adblock.php:157
+#: pro-adblock.php:174
 msgid "Background color"
 msgstr "Hintergrundfarbe"
 
-#: __pro-adblock.php:155 pro-adblock.php:161
+#: pro-adblock.php:178
 msgid "Font color"
 msgstr "Schriftfarbe"
 
-#: __pro-adblock.php:159 pro-adblock.php:165
+#: pro-adblock.php:182
 msgid "Link color"
 msgstr "Linkfarbe"
 
-#: __pro-adblock.php:163 pro-adblock.php:169
+#: pro-adblock.php:186
 msgid "Link hover color"
 msgstr "Linkfarbe (hover)"
 
-#: __pro-adblock.php:208 pro-adblock.php:223
+#: pro-adblock.php:190
+msgid "Modal style"
+msgstr "Modalstil"
+
+#: pro-adblock.php:233
+msgid "Box w/ transparent background"
+msgstr "Box mit transparentem Hintergrund"
+
+#: pro-adblock.php:234
+msgid "Fully locked screen"
+msgstr "Seitenansicht vollständig geperrt"
+
+#: pro-adblock.php:240
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: __pro-adblock.php:212 pro-adblock.php:227
+#: pro-adblock.php:244
 msgid "Set custom colors for the modal box."
 msgstr "Definiere eigene Farben für die Modalbox."
 
-#: __pro-adblock.php:218 pro-adblock.php:233
+#: pro-adblock.php:250
 msgid "Pro-AdBlock Settings"
 msgstr "Pro-AdBlock Einstellungen"
 
-#: __pro-adblock.php:238 pro-adblock.php:258
+#: pro-adblock.php:276
 msgid ""
 "<h1>You are not using an Adblocker!</h1>\n"
 "\n"
@@ -96,15 +108,3 @@ msgstr ""
 "target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n"
 "\n"
 "Vielen Dank für Deine Aufmerksamkeit."
-
-#: pro-adblock.php:173
-msgid "Modal style"
-msgstr "Modalstil"
-
-#: pro-adblock.php:216
-msgid "Box w/ transparent background"
-msgstr "Box mit transparentem Hintergrund"
-
-#: pro-adblock.php:217
-msgid "Fully locked screen"
-msgstr "Seitenansicht vollständig geperrt"

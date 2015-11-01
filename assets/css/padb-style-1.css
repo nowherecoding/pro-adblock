@@ -30,7 +30,6 @@
 	background-clip: padding-box;
 	z-index: 10000;
 	position: absolute;
-	padding: 20px 10px 10px;
 	margin: 20%;
 }
 
@@ -61,9 +60,14 @@
 	right: -14px;
 }
 
+#padb-modal-box-content {
+	padding: 20px 10px 10px;
+}
+
 #padb-modal-box-footer {
 	font-weight: bold;
-	text-align: right;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 5px;
 }
 
 .padb-modal-close {
