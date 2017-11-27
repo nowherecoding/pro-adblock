@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-01 21:37+0100\n"
-"PO-Revision-Date: 2015-11-01 21:37+0100\n"
+"POT-Creation-Date: 2017-11-27 19:50+0100\n"
+"PO-Revision-Date: 2017-11-27 19:50+0100\n"
 "Last-Translator: Sergej Theiss\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,13 +14,13 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.13\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: nbproject\n"
 
 #: pro-adblock.php:87
-msgid "Click here to enter this site now"
-msgstr "Hier klicken, um auf die Webseite zu gelangen"
+msgid "Close modal to enter website"
+msgstr "Fenster schließen, um auf die Webseite zu gelangen"
 
 #: pro-adblock.php:162
 msgid "Message"
@@ -54,38 +54,38 @@ msgstr "Linkfarbe (hover)"
 msgid "Modal style"
 msgstr "Modalstil"
 
-#: pro-adblock.php:233
+#: pro-adblock.php:234
 msgid "Box w/ transparent background"
 msgstr "Box mit transparentem Hintergrund"
 
-#: pro-adblock.php:234
+#: pro-adblock.php:235
 msgid "Fully locked screen"
 msgstr "Seitenansicht vollständig geperrt"
 
-#: pro-adblock.php:240
+#: pro-adblock.php:241
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: pro-adblock.php:244
+#: pro-adblock.php:245
 msgid "Set custom colors for the modal box."
 msgstr "Definiere eigene Farben für die Modalbox."
 
-#: pro-adblock.php:250
+#: pro-adblock.php:251
 msgid "Pro-AdBlock Settings"
 msgstr "Pro-AdBlock Einstellungen"
 
-#: pro-adblock.php:276
+#: pro-adblock.php:277
 msgid ""
-"<h1>You are not using an Adblocker!</h1>\n"
+"<h1>You are not using an Adblocker?!</h1>\n"
 "\n"
 "Advertising displayed on webpages can be a security risk. Currently, the "
-"advertising consists of embedded third party content. These contents are not "
-"under the website's owner editorial control and add a repeatedly criminally "
-"exploited attack vector to the website. An adblocker protects a your "
-"surfing. This site explicitly supports the usage of advertisement blockers. "
-"Please consider to use one!\n"
+"advertising mostly consists of embedded third party content. These contents "
+"are not under the website's owner editorial control and add a repeatedly "
+"criminally exploited attack vector to the website. An adblocker protects a "
+"your surfing. This site explicitly supports the usage of advertisement "
+"blockers. Please consider to use one!\n"
 "\n"
 "You can find a listing of adblockers here:\n"
 "<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" "
@@ -93,15 +93,15 @@ msgid ""
 "\n"
 "Thank you for your attention."
 msgstr ""
-"<h1>Du benutzt keinen Adblocker!</h1>\n"
+"<h1>Du benutzt keinen Adblocker?!</h1>\n"
 "\n"
 "Auf Webseiten angezeigte Werbung kann ein Sicherheitsrisiko sein. Zurzeit "
-"besteht die Werbung aus eingebetteten Inhalten von Drittanbietern. Diese "
-"Inhalte unterliegen nicht der redaktionellen Kontrolle dessen, der sie "
-"einbettet und fügen einen immer wieder kriminell ausgebeuteten "
-"Angriffsvektor zu einem Webauftritt hinzu. Ein Adblocker schützt beim Surfen "
-"im Internet. Diese Seite unterstützt ausdrücklich die Verwendung von "
-"Adblockern. Bitte erwäge einen zu nutzen!\n"
+"besteht die Werbung hauptsächlich aus eingebetteten Inhalten von "
+"Drittanbietern. Diese Inhalte unterliegen nicht der redaktionellen Kontrolle "
+"dessen, der sie einbettet und fügen einen immer wieder kriminell "
+"ausgebeuteten Angriffsvektor zu einem Webauftritt hinzu. Ein Adblocker "
+"schützt beim Surfen im Internet. Diese Seite unterstützt ausdrücklich die "
+"Verwendung von Adblockern. Bitte erwäge einen zu nutzen!\n"
 "\n"
 "Eine Auflistung von Adblockern findest Du hier:\n"
 "<strong><a href=\"http://crxproject.github.io/pro-adblock/lists-de.html\" "

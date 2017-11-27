@@ -5,11 +5,11 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 1.0.1
+  Version: 1.1.0
   License: http://www.gnu.org/licenses/gpl-2.0.html
   
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
-  Copyright (C) 2015  Sergej Theiss
+  Copyright (C) 2017  Sergej Theiss
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ function padb_css() {
 	<!-- ProAdBlock Custom CSS -->
 	<style type="text/css">
 	<?php if ( $colors[ 'modal_style' ] == 2 ) { // needed for fully locked screen style ?>
-			#padb-modal-overlay {
+			#padb-modal {
 				background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
 			}
 	<?php } ?>
@@ -81,10 +81,10 @@ function padb_overlay() {
 	$options = padb_get_option( 'padb_settings' );
 	// the modal
 	?>
-	<div id="padb-modal-overlay">
-		<div id="padb-modal-box"><div id="padb-modal-box-header" class="padb-modal-close"></div>
-			<div id="padb-modal-box-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
-			<div id="padb-modal-box-footer" class="padb-modal-close"><span>&#10008; <?php echo __( 'Click here to enter this site now', 'proadblock' ); ?></span></div>
+	<div id="padb-modal">
+		<div id="padb-modal-box">
+            <div id="padb-modal-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
+			<div id="padb-modal-footer"><span id="padb-modal-close">&#10008; <?php echo __( 'Close modal to enter website', 'proadblock' ); ?></span></div>
 		</div>
 	</div>
 	<?php
@@ -107,20 +107,20 @@ function padb_detector() {
 			}
 			// hide the modal if adblocker is enabled
 			if (blockerDetected) {
-				$('#padb-modal-overlay').hide();
+				$('#padb-modal').hide();
 			}
 			// show the modal if adblocker is disabled
 			else {
 				if (!wpCookies.get('padb_accepted') && !isMobile) {
-					$('#padb-modal-overlay').show();
+					$('#padb-modal').show();
 					// generate cookie if user closes modal
-					$('.padb-modal-close').click(function() {
-						$('#padb-modal-overlay').fadeOut('slow');
+					$('#padb-modal-close').click(function() {
+						$('#padb-modal').fadeOut('slow');
 						var date = 7 * 24 * 60 * 60; // set cookie to expire after 7 days
 						wpCookies.set('padb_accepted', true, date, '/');
 					});
 				} else {
-					$('#padb-modal-overlay').hide();
+					$('#padb-modal').hide();
 				}
 			}
 		});
@@ -273,7 +273,7 @@ function padb_options_page() {
 function padb_get_option( $values ) {
 	// loaded when no entry in database
 	$defaults = array(
-		'modal_message'			 => __( "<h1>You are not using an Adblocker!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
+		'modal_message'			 => __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
 		'modal_box_bg_color'	 => 'E89900',
 		'modal_font_color'		 => 'FFFFFF',
 		'modal_link_color'		 => 'FFFFFF',

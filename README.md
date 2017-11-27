@@ -10,6 +10,10 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 
 ## Changelog
 
+### v1.1.0
+* Modal appearance improved
+* Minor code changes
+
 ### v1.0.1
 
 * Directory tree rearranged
