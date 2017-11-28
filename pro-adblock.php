@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 1.1.0
+  Version: 1.1.1
   License: http://www.gnu.org/licenses/gpl-2.0.html
   
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '1.0.1' );
+define( 'WP_PADB_VERSION', '1.1.1' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
@@ -136,11 +136,12 @@ function padb_enqueue_scripts() {
 	$style = padb_get_option( 'padb_settings' );
 	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script( 'utils' );
+	wp_enqueue_script( 'jquery' );
 }
 
 add_action( 'wp_head', 'padb_css' );
 add_action( 'wp_footer', 'padb_overlay' );
-add_action( 'wp_footer', 'padb_detector' );
+add_action( 'wp_footer', 'padb_detector', 100 );
 add_action( 'wp_enqueue_scripts', 'padb_enqueue_scripts' );
 
 /* * *****************************************************************************
