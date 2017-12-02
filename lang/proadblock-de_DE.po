@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 19:50+0100\n"
-"PO-Revision-Date: 2017-11-27 19:50+0100\n"
+"POT-Creation-Date: 2017-12-02 13:45+0100\n"
+"PO-Revision-Date: 2017-12-02 13:45+0100\n"
 "Last-Translator: Sergej Theiss\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -22,35 +22,35 @@ msgstr ""
 msgid "Close modal to enter website"
 msgstr "Fenster schließen, um auf die Webseite zu gelangen"
 
-#: pro-adblock.php:162
+#: pro-adblock.php:163
 msgid "Message"
 msgstr "Mitteilung"
 
-#: pro-adblock.php:166
+#: pro-adblock.php:167
 msgid "Text"
 msgstr "Text"
 
-#: pro-adblock.php:170
+#: pro-adblock.php:171
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: pro-adblock.php:174
+#: pro-adblock.php:175
 msgid "Background color"
 msgstr "Hintergrundfarbe"
 
-#: pro-adblock.php:178
+#: pro-adblock.php:179
 msgid "Font color"
 msgstr "Schriftfarbe"
 
-#: pro-adblock.php:182
+#: pro-adblock.php:183
 msgid "Link color"
 msgstr "Linkfarbe"
 
-#: pro-adblock.php:186
+#: pro-adblock.php:187
 msgid "Link hover color"
 msgstr "Linkfarbe (hover)"
 
-#: pro-adblock.php:190
+#: pro-adblock.php:191
 msgid "Modal style"
 msgstr "Modalstil"
 
@@ -83,7 +83,7 @@ msgid ""
 "Advertising displayed on webpages can be a security risk. Currently, the "
 "advertising mostly consists of embedded third party content. These contents "
 "are not under the website's owner editorial control and add a repeatedly "
-"criminally exploited attack vector to the website. An adblocker protects a "
+"criminally exploited attack vector to the website. An adblocker protects "
 "your surfing. This site explicitly supports the usage of advertisement "
 "blockers. Please consider to use one!\n"
 "\n"
