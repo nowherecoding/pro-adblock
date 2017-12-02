@@ -81,7 +81,7 @@ function padb_overlay() {
 	$options = padb_get_option( 'padb_settings' );
 	// the modal
 	?>
-	<div id="padb-modal">
+	<div id="padb-modal" class="padb-style-<?php echo $options[ 'modal_style' ]; ?>">
 		<div id="padb-modal-box">
             <div id="padb-modal-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
 			<div id="padb-modal-footer"><span id="padb-modal-close">&#10008; <?php echo __( 'Close modal to enter website', 'proadblock' ); ?></span></div>
@@ -134,7 +134,7 @@ function padb_detector() {
 function padb_enqueue_scripts() {
 	// set the style id
 	$style = padb_get_option( 'padb_settings' );
-	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style-' . $style[ 'modal_style' ] . '.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script( 'utils' );
 	wp_enqueue_script( 'jquery' );
 }
