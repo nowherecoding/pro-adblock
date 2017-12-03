@@ -87,55 +87,16 @@ function padb_overlay() {
 }
 
 /**
- * Adblocker detection
- */
-function padb_detector() {
-	?>
-	<script>var blockerDetected = true;</script>
-	<script src="<?php echo PADB_URL; ?>gads.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			// mobile device detection
-			var isMobile = false; //initiate as false
-			// excluded b/c currently there are not many adblockers for mobile platforms
-			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				isMobile = true;
-			}
-			// hide the modal if adblocker is enabled
-			if (blockerDetected) {
-				$('#padb-modal').hide();
-			}
-			// show the modal if adblocker is disabled
-			else {
-				if (!wpCookies.get('padb_accepted') && !isMobile) {
-					$('#padb-modal').show();
-					// generate cookie if user closes modal
-					$('#padb-modal-close').click(function() {
-						$('#padb-modal').fadeOut('slow');
-						var date = 7 * 24 * 60 * 60; // set cookie to expire after 7 days
-						wpCookies.set('padb_accepted', true, date, '/');
-					});
-				} else {
-					$('#padb-modal').hide();
-				}
-			}
-		});
-	</script>
-	<?php
-}
-
-/**
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
 	wp_enqueue_style( 'padb-style', PADB_URL . 'assets/css/padb-style.css', false, WP_PADB_VERSION, 'all' );
-	wp_enqueue_script( 'utils' );
-	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script('padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), WP_PADB_VERSION, true);
+
 }
 
 add_action( 'wp_head', 'padb_css' );
 add_action( 'wp_footer', 'padb_overlay' );
-add_action( 'wp_footer', 'padb_detector', 100 );
 add_action( 'wp_enqueue_scripts', 'padb_enqueue_scripts' );
 
 /* * *****************************************************************************
