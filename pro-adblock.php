@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 1.1.1
+  Version: 1.2.0
   License: http://www.gnu.org/licenses/gpl-2.0.html
   
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '1.1.1' );
+define( 'WP_PADB_VERSION', '1.2.0' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
@@ -59,10 +59,6 @@ function padb_css() {
 			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
 		}
 
-		#padb-modal-box h1 {
-			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
-		}
-
 		#padb-modal-box a {
 			color: #<?php echo $colors[ 'modal_link_color' ]; ?>;
 		}
@@ -83,7 +79,7 @@ function padb_overlay() {
 	?>
 	<div id="padb-modal" class="padb-style-<?php echo $options[ 'modal_style' ]; ?>">
 		<div id="padb-modal-box">
-            <div id="padb-modal-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
+			<div id="padb-modal-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
 			<div id="padb-modal-footer"><span id="padb-modal-close">&#10008; <?php echo __( 'Close modal to enter website', 'proadblock' ); ?></span></div>
 		</div>
 	</div>
@@ -132,9 +128,7 @@ function padb_detector() {
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
-	// set the style id
-	$style = padb_get_option( 'padb_settings' );
-	wp_enqueue_style( 'padb', PADB_URL . 'assets/css/padb-style.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_style( 'padb-style', PADB_URL . 'assets/css/padb-style.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script( 'utils' );
 	wp_enqueue_script( 'jquery' );
 }
@@ -275,10 +269,10 @@ function padb_get_option( $values ) {
 	// loaded when no entry in database
 	$defaults = array(
 		'modal_message'			 => __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
-		'modal_box_bg_color'	 => 'E89900',
-		'modal_font_color'		 => 'FFFFFF',
-		'modal_link_color'		 => 'FFFFFF',
-		'modal_link_color_hover' => 'FFFFFF',
+		'modal_box_bg_color'	 => 'e89900',
+		'modal_font_color'		 => 'fff',
+		'modal_link_color'		 => 'fff',
+		'modal_link_color_hover' => 'fff',
 		'modal_style'			 => '1'
 	);
 
