@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
-  Version: 1.2.0
+  Version: 2.0.0-beta
   License: http://www.gnu.org/licenses/gpl-2.0.html
   
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '1.2.0' );
+define( 'WP_PADB_VERSION', '2.0.0-beta' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
@@ -90,7 +90,7 @@ function padb_overlay() {
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
-	wp_enqueue_style( 'padb-style', PADB_URL . 'assets/css/padb-style.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_style( 'padb-style', PADB_URL . 'padb-style.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script('padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), WP_PADB_VERSION, true);
 
 }
@@ -227,7 +227,7 @@ function padb_options_page() {
  * @return type
  */
 function padb_get_option( $values ) {
-	// loaded when no entry in database
+	// load default options if no entry in database
 	$defaults = array(
 		'modal_message'			 => __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'proadblock' ),
 		'modal_box_bg_color'	 => 'e89900',

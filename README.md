@@ -10,6 +10,9 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 
 ## Changelog
 
+### v2.0.0-beta
+* CSS file moved to parent folder
+
 ### v1.2.0
 * CSS files merged
 * JS function moved into file
