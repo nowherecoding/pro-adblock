@@ -6,6 +6,8 @@
   Author: Sergej Theiss
   Author URI: https://github.com/crxproject/
   Version: 2.0.0-beta
+  Text Domain: proadblock
+  Domain Path: /lang
   License: http://www.gnu.org/licenses/gpl-2.0.html
   
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
