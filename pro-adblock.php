@@ -187,10 +187,8 @@ function padb_link_color_hover_render() {
 function padb_select_modal_style_render() {
 	$options = padb_get_option( 'padb_settings' );
 	?>
-	<select name='padb_settings[modal_style]'>
-		<option value='1'<?php selected( $options[ 'modal_style' ], 1 ); ?>><?php echo __( 'Box w/ transparent background', 'proadblock' ); ?></option>
-		<option value='2'<?php selected( $options[ 'modal_style' ], 2 ); ?>><?php echo __( 'Fully locked screen', 'proadblock' ); ?></option>
-	</select>
+	<label><input type="radio" name="padb_settings[modal_style]" value="1"<?php checked( 1, $options[ 'modal_style' ], true ); ?> /> <span><?php echo __( 'Box w/ transparent background', 'pro-adblock' ); ?></span></label><br />
+	<label><input type="radio" name="padb_settings[modal_style]" value="2"<?php checked( 2, $options[ 'modal_style' ], true ); ?> /> <span><?php echo __( 'Fully locked screen', 'pro-adblock' ); ?></span></label>
 	<?php
 }
 
