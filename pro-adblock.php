@@ -151,7 +151,9 @@ function padb_settings_init() {
 function padb_message_render() {
 	$options = padb_get_option( 'padb_settings' );
 	?>
-	<textarea rows='15' name='padb_settings[modal_message]' class='large-text code'><?php echo $options[ 'modal_message' ]; ?></textarea>
+	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Text', 'pro-adblock' ); ?></span></legend>
+		<textarea rows='15' name='padb_settings[modal_message]' class='large-text code'><?php echo $options[ 'modal_message' ]; ?></textarea>
+	</fieldset>
 	<?php
 }
 
@@ -186,8 +188,10 @@ function padb_link_color_hover_render() {
 function padb_select_modal_style_render() {
 	$options = padb_get_option( 'padb_settings' );
 	?>
-	<label><input type="radio" name="padb_settings[modal_style]" value="1"<?php checked( 1, $options[ 'modal_style' ], true ); ?> /> <span><?php _e( 'Box w/ transparent background', 'pro-adblock' ); ?></span></label><br />
-	<label><input type="radio" name="padb_settings[modal_style]" value="2"<?php checked( 2, $options[ 'modal_style' ], true ); ?> /> <span><?php _e( 'Fully locked screen', 'pro-adblock' ); ?></span></label>
+	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Modal style', 'pro-adblock' ); ?></span></legend>
+		<label><input type="radio" name="padb_settings[modal_style]" value="1"<?php checked( 1, $options[ 'modal_style' ], true ); ?> /> <span><?php _e( 'Box w/ transparent background', 'pro-adblock' ); ?></span></label><br />
+		<label><input type="radio" name="padb_settings[modal_style]" value="2"<?php checked( 2, $options[ 'modal_style' ], true ); ?> /> <span><?php _e( 'Fully locked screen', 'pro-adblock' ); ?></span></label>
+	</fieldset>
 	<?php
 }
 
