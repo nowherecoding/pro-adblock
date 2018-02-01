@@ -37,7 +37,11 @@ define( 'WP_PADB_VERSION', '2.0.0-beta' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
-load_plugin_textdomain( 'pro-adblock', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+add_action( 'init', 'padb_load_textdomain' );
+
+function padb_load_textdomain() {
+	load_plugin_textdomain( 'pro-adblock', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+}
 
 /**
  * Custom css setup based on the users choice
