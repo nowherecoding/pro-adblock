@@ -12,6 +12,9 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 
 ### v2.0.0-beta
 * CSS file moved to parent folder
+* Convert select option to radio buttons
+* Adjusting translations domain
+* Adding CSS for screen reader devices
 
 ### v1.2.1
 * Missing text domain added
