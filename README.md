@@ -15,6 +15,10 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 * Convert select option to radio buttons
 * Adjusting translations domain
 * Adding CSS for screen reader devices
+* Hooking up textdomain correctly
+
+### v1.2.2
+* Adding missing translation call
 
 ### v1.2.1
 * Missing text domain added
