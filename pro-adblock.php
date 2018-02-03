@@ -84,7 +84,7 @@ function padb_overlay() {
 	?>
 	<div id="padb-modal" class="padb-style-<?php echo $options[ 'modal_style' ]; ?>">
 		<div id="padb-modal-box">
-			<div id="padb-modal-content"><?php echo wpautop( $options[ 'modal_message' ] ); ?></div>
+			<div id="padb-modal-content"><?php echo wpautop( __( $options[ 'modal_message' ], 'pro-adblock' ) ); ?></div>
 			<div id="padb-modal-footer"><span id="padb-modal-close">&#10008; <?php _e( 'Close modal to enter website', 'pro-adblock' ); ?></span></div>
 		</div>
 	</div>
