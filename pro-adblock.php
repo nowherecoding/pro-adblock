@@ -47,32 +47,33 @@ function padb_load_textdomain() {
  * Custom css setup based on the users choice
  */
 function padb_css() {
+	wp_enqueue_style( 'pro-adblock', PADB_URL . 'padb-style.css', false, WP_PADB_VERSION, 'all' );
 
 	// autogenerate colors from db
 	$colors = padb_get_option( 'padb_settings' );
-	?>
-	<!-- ProAdBlock Custom CSS -->
-	<style type="text/css">
-	<?php if ( $colors[ 'modal_style' ] == 2 ) { // needed for fully locked screen style ?>
-			#padb-modal {
-				background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
-			}
-	<?php } ?>
 
-		#padb-modal-box {
-			background: #<?php echo $colors[ 'modal_box_bg_color' ]; ?>;
-			color: #<?php echo $colors[ 'modal_font_color' ]; ?>;
-		}
+	$css = "/* Pro-AdBlock Custom CSS */\n";
 
-		#padb-modal-box a {
-			color: #<?php echo $colors[ 'modal_link_color' ]; ?>;
-		}
+	if ( $colors[ 'modal_style' ] == 2 ) {
+		$css .= '	#padb-modal {
+			background-color: #%1$s;
+		}' . "\n";
+	}
 
-		#padb-modal-box a:hover {
-			color: #<?php echo $colors[ 'modal_link_color_hover' ]; ?>;
-		}
-	</style>
-	<?php
+	$css .= '	#padb-modal-box {
+			background-color: #%1$s;
+			color: #%2$s;
+	}
+
+	#padb-modal-box a {
+		color: #%3$s;
+	}
+
+	#padb-modal-box a:hover {
+		color: #%4$s;
+	}' . "\n";
+
+	wp_add_inline_style( 'pro-adblock', sprintf( $css, $colors[ 'modal_box_bg_color' ], $colors[ 'modal_font_color' ], $colors[ 'modal_link_color' ], $colors[ 'modal_link_color_hover' ] ) );	
 }
 
 /**
@@ -95,12 +96,11 @@ function padb_overlay() {
  * Scripts & styles enqueueing
  */
 function padb_enqueue_scripts() {
-	wp_enqueue_style( 'padb-style', PADB_URL . 'padb-style.css', false, WP_PADB_VERSION, 'all' );
 	wp_enqueue_script('padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), WP_PADB_VERSION, true);
 
 }
 
-add_action( 'wp_head', 'padb_css' );
+add_action( 'wp_enqueue_scripts', 'padb_css' );
 add_action( 'wp_footer', 'padb_overlay' );
 add_action( 'wp_enqueue_scripts', 'padb_enqueue_scripts' );
 
