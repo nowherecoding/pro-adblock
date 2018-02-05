@@ -8,9 +8,9 @@
   Version: 2.0.0-beta
   Text Domain: pro-adblock
   License: http://www.gnu.org/licenses/gpl-2.0.html
-  
+
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
-  Copyright (C) 2017  Sergej Theiss
+  Copyright (C) 2018  Sergej Theiss
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ function padb_load_textdomain() {
 }
 
 /**
- * Custom css setup based on the users choice
+ * Styles enqueueing
  */
 function padb_stylesheets() {
 	wp_enqueue_style( 'pro-adblock', PADB_URL . 'padb-style.css', false, WP_PADB_VERSION, 'all' );
@@ -52,6 +52,7 @@ function padb_stylesheets() {
 	// autogenerate colors from db
 	$colors = padb_get_option( 'padb_settings' );
 
+	// Custom css setup based on the users choice
 	$css = "/* Pro-AdBlock Custom CSS */\n";
 
 	if ( $colors[ 'modal_style' ] == 2 ) {
@@ -73,7 +74,7 @@ function padb_stylesheets() {
 		color: #%4$s;
 	}' . "\n";
 
-	wp_add_inline_style( 'pro-adblock', sprintf( $css, $colors[ 'modal_box_bg_color' ], $colors[ 'modal_font_color' ], $colors[ 'modal_link_color' ], $colors[ 'modal_link_color_hover' ] ) );	
+	wp_add_inline_style( 'pro-adblock', sprintf( $css, $colors[ 'modal_box_bg_color' ], $colors[ 'modal_font_color' ], $colors[ 'modal_link_color' ], $colors[ 'modal_link_color_hover' ] ) );
 }
 
 /**
@@ -93,11 +94,10 @@ function padb_overlay() {
 }
 
 /**
- * Scripts & styles enqueueing
+ * Scripts enqueueing
  */
 function padb_javascripts() {
 	wp_enqueue_script('padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), WP_PADB_VERSION, true);
-
 }
 
 add_action( 'wp_enqueue_scripts', 'padb_stylesheets' );
