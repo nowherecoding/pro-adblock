@@ -1,6 +1,6 @@
 /*!
  * Pro-AdBlock
- * https://github.com/crxproject/pro-adblock/
+ * https://github.com/nowherecoding/pro-adblock/
  *
  * Adblockers routinely block javascript files that have *ads* in the name and hence,
  * this file will not be loaded if the adblocker is active.

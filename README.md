@@ -4,7 +4,7 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 
 ## Installation
 
-1. Download the [latest release](https://github.com/crxproject/pro-adblock/releases/latest) and extract the archive, then copy the extracted folder to your WordPress plugins directory, either by uploading it via FTP or by using the "Add Plugin" function of WordPress.
+1. Download the [latest release](https://github.com/nowherecoding/pro-adblock/releases/latest) and extract the archive, then copy the extracted folder to your WordPress plugins directory, either by uploading it via FTP or by using the "Add Plugin" function of WordPress.
 2. Activate the plugin at the plugin administration page.
 3. If you want: Open the plugin configuration page, which is located under Settings -> Pro-AdBlock and customize settings like displayed text, font color and background color.
 

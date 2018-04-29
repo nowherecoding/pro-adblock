@@ -1,10 +1,10 @@
 <?php
 /*
   Plugin Name: Pro-AdBlock
-  Plugin URI: https://github.com/crxproject/pro-adblock/
+  Plugin URI: https://github.com/nowherecoding/pro-adblock/
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: Sergej Theiss
-  Author URI: https://github.com/crxproject/
+  Author URI: https://github.com/nowherecoding/
   Version: 2.0.0-beta
   Text Domain: pro-adblock
   License: http://www.gnu.org/licenses/gpl-2.0.html
@@ -236,7 +236,7 @@ function padb_options_page() {
 function padb_get_option( $values ) {
 	// load default options if no entry in database
 	$defaults = array(
-		'modal_message'			 => __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"http://crxproject.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'pro-adblock' ),
+		'modal_message'			 => __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'pro-adblock' ),
 		'modal_box_bg_color'	 => 'e89900',
 		'modal_font_color'		 => 'fff',
 		'modal_link_color'		 => 'fff',
