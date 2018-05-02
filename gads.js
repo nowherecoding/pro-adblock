@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 
 	// show the modal if adblocker is disabled
 	if (!wpCookies.get('padb_accepted') && !isMobile) {
-		$('#padb-modal').show();
+		$('#padb-modal').fadeIn('slow');
 		// generate cookie if user closes modal
 		$('#padb-modal-close').click(function() {
 			$('#padb-modal').fadeOut('slow');
