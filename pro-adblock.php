@@ -134,7 +134,7 @@ function padb_message_render() {
 	$options = padb_get_option( 'padb2_settings' );
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Text', 'pro-adblock' ); ?></span></legend>
-		<textarea rows='15' name='padb2_settings[modal_message]' class='large-text code'><?php echo $options['modal_message']; ?></textarea>
+		<textarea rows='10' cols='50' name='padb2_settings[modal_message]' class='large-text code'><?php echo $options['modal_message']; ?></textarea>
 	</fieldset>
 	<?php
 }
@@ -157,7 +157,7 @@ function padb_privacy_notice() {
 		<tr>
 			<td>
 				<fieldset><legend class="screen-reader-text"><span><?php _e( 'Privacy policy', 'pro-adblock' ); ?></span></legend>
-					<textarea rows='10' cols='50' class='large-text code' readonly><?php _e( "<strong>Pro-AdBlock Plugin</strong>\n\nWithin our online presence we use the plugin Pro-AdBlock by the developer NowhereCoding.\n\nThe use of Pro-AdBlock is based on our legitimate interests within the meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we alert users about the dangers of surfing without an adblocker browser plug-in and offer them the opportunity to install one.\n\nPro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected. If a user has installed an adblocker, generally no associated cookie will be stored on the user's device.", 'pro-adblock' ); ?></textarea>
+					<textarea rows='10' cols='50' class='large-text code' readonly='readonly'><?php _e( "<strong>Pro-AdBlock Plugin</strong>\n\nWithin our online presence we use the plugin Pro-AdBlock by the developer NowhereCoding.\n\nThe use of Pro-AdBlock is based on our legitimate interests within the meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we alert users about the dangers of surfing without an adblocker browser plug-in and offer them the opportunity to install one.\n\nPro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected. If a user has installed an adblocker, generally no associated cookie will be stored on the user's device.", 'pro-adblock' ); ?></textarea>
 				</fieldset>
 			</td>
 		</tr>
