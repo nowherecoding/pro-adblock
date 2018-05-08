@@ -11,11 +11,9 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 ## Changelog
 
 ### v2.0.0-beta
-* CSS file moved to parent folder
-* Convert select option to radio buttons
-* Adjusting translations domain
-* Adding CSS for screen reader devices
-* Hooking up textdomain correctly
+* Custom CSS colors removed to fit modal into installed theme styles
+* Modal elements completely redesigned
+* Privacy policy options added
 
 ### v1.2.2
 * Adding missing translation call

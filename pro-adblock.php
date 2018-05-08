@@ -10,7 +10,7 @@
   License: http://www.gnu.org/licenses/gpl-2.0.html
 
   Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.
-  Copyright (C) 2018  NowhereCoding
+  Copyright (C) 2018 NowhereCoding
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License along
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'WP_PADB_VERSION', '2.0.0-beta' );
+define( 'PADB_VERSION', '2.0.0-beta' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 
 // load the plugin's translated strings
@@ -47,30 +47,51 @@ function padb_load_textdomain() {
  * Styles enqueueing
  */
 function padb_stylesheets() {
-	wp_enqueue_style( 'pro-adblock', PADB_URL . 'padb-style.css', false, WP_PADB_VERSION, 'all' );
+	wp_enqueue_style( 'pro-adblock', PADB_URL . 'padb-style.css', false, PADB_VERSION, 'all' );
 }
 
 /**
- *  Overlay generation
+ * Overlay generation
  */
 function padb_overlay() {
-	$options = padb_get_option( 'padb_settings' );
+	$options = padb_get_option( 'padb2_settings' );
 	// the modal
 	?>
-	<div id="padb-modal" class="padb-style-<?php echo $options['modal_style']; ?>">
-		<div id="padb-modal-box">
-			<div id="padb-modal-content"><?php echo wpautop( __( $options['modal_message'], 'pro-adblock' ) ); ?></div>
-			<div id="padb-modal-footer"><span id="padb-modal-close">&#10008; <?php _e( 'Close modal to enter website', 'pro-adblock' ); ?></span></div>
+	<div id="padb-modal" class="padb-style-<?php echo $options['modal_style']; ?>" tabindex="-1" role="dialog">
+		<div class="padb-modal-wrapper" role="document">
+
+			<div class="padb-modal-content">
+				<div class="padb-modal-body">
+					<?php echo wpautop( __( $options['modal_message'], 'pro-adblock' ) ); ?>
+				</div>
+				<div class="padb-modal-footer">
+					<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy! Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
+					<button type="button" class="padb-modal-close" data-dismiss="padb-modal"><?php _e( 'Accept &amp; continue', 'pro-adblock' ); ?> *</button>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<?php
 }
 
 /**
+ * Display a link to the privacy policy
+ * This is works only in WP 4.9.6+ and if you have generated a privacy police page in the settings
+ *
+ * @return type
+ */
+function padb_privacy_policy_link() {
+	if ( function_exists('get_privacy_policy_url') and !empty( get_option( 'wp_page_for_privacy_policy' ) ) ) {
+		return sprintf( __( "For more information visit our %s.", 'pro-adblock' ), get_the_privacy_policy_link() );
+	}
+}
+
+/**
  * Scripts enqueueing
  */
 function padb_javascripts() {
-	wp_enqueue_script( 'padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), WP_PADB_VERSION, true );
+	wp_enqueue_script( 'padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), PADB_VERSION, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'padb_stylesheets' );
@@ -89,8 +110,8 @@ function padb_add_admin_menu() {
 }
 
 function padb_settings_init() {
-	register_setting( 'pluginPage1', 'padb_settings' );
-	register_setting( 'pluginPage2', 'padb_settings' );
+	register_setting( 'pluginPage1', 'padb2_settings' );
+	register_setting( 'pluginPage2', 'padb2_settings' );
 
 	add_settings_section(
 			'padb_pluginPage_section_0', __( 'Message', 'pro-adblock' ), 'padb_settings_section_callback_1', 'pluginPage1'
@@ -110,21 +131,37 @@ function padb_settings_init() {
 }
 
 function padb_message_render() {
-	$options = padb_get_option( 'padb_settings' );
+	$options = padb_get_option( 'padb2_settings' );
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Text', 'pro-adblock' ); ?></span></legend>
-		<textarea rows='15' name='padb_settings[modal_message]' class='large-text code'><?php echo $options['modal_message']; ?></textarea>
+		<textarea rows='15' name='padb2_settings[modal_message]' class='large-text code'><?php echo $options['modal_message']; ?></textarea>
 	</fieldset>
 	<?php
 }
 
 function padb_select_modal_style_render() {
-	$options = padb_get_option( 'padb_settings' );
+	$options = padb_get_option( 'padb2_settings' );
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Modal background', 'pro-adblock' ); ?></span></legend>
-		<label><input type="radio" name="padb_settings[modal_style]" value="1"<?php checked( 1, $options['modal_style'], true ); ?> /> <span><?php _e( 'Dark transparent', 'pro-adblock' ); ?></span></label><br />
-		<label><input type="radio" name="padb_settings[modal_style]" value="2"<?php checked( 2, $options['modal_style'], true ); ?> /> <span><?php _e( 'Light transparent', 'pro-adblock' ); ?></span></label>
+		<label><input type="radio" name="padb2_settings[modal_style]" value="1"<?php checked( 1, $options['modal_style'], true ); ?> /> <span><?php _e( 'Dark transparent', 'pro-adblock' ); ?></span></label><br />
+		<label><input type="radio" name="padb2_settings[modal_style]" value="2"<?php checked( 2, $options['modal_style'], true ); ?> /> <span><?php _e( 'Light transparent', 'pro-adblock' ); ?></span></label>
 	</fieldset>
+	<?php
+}
+
+function padb_privacy_notice() {
+	?>
+	<h2><?php _e( 'Privacy policy', 'pro-adblock' ); ?></h2>
+	<?php _e( 'You should copy &amp; paste this text into your privacy policy page.', 'pro-adblock' ); ?>
+	<table class="form-table">
+		<tr>
+			<td>
+				<fieldset><legend class="screen-reader-text"><span><?php _e( 'Privacy policy', 'pro-adblock' ); ?></span></legend>
+					<textarea rows='10' cols='50' class='large-text code' readonly><?php _e( "<strong>Pro-AdBlock Plugin</strong>\n\nWithin our online presence we use the plugin Pro-AdBlock by the developer NowhereCoding.\n\nThe use of Pro-AdBlock is based on our legitimate interests within the meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we alert users about the dangers of surfing without an adblocker browser plug-in and offer them the opportunity to install one.\n\nPro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected. If a user has installed an adblocker, generally no associated cookie will be stored on the user's device.", 'pro-adblock' ); ?></textarea>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
 	<?php
 }
 
@@ -132,9 +169,7 @@ function padb_settings_section_callback_1() {
 	echo __( 'Display a custom text to users that have no adblocker enabled.', 'pro-adblock' );
 }
 
-function padb_settings_section_callback_2() {
-	
-}
+function padb_settings_section_callback_2() {}
 
 function padb_options_page() {
 	?>
@@ -149,6 +184,8 @@ function padb_options_page() {
 			settings_fields( 'pluginPage2' );
 			do_settings_sections( 'pluginPage2' );
 			submit_button();
+
+			padb_privacy_notice();
 			?>
 
 		</form>
@@ -165,7 +202,7 @@ function padb_options_page() {
 function padb_get_option( $values ) {
 	// load default options if no entry in database
 	$defaults = array(
-		'modal_message'	=> __( "<h1>You are not using an Adblocker?!</h1>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one!\n\nYou can find a listing of adblockers here:\n<strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock (Adblocker Promotion)</a></strong>\n\nThank you for your attention.", 'pro-adblock' ),
+		'modal_message'	=> __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
 		'modal_style'	=> '1'
 	);
 

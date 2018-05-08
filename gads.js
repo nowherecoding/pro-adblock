@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 	if (!wpCookies.get('padb_accepted') && !isMobile) {
 		$('#padb-modal').fadeIn('slow');
 		// generate cookie if user closes modal
-		$('#padb-modal-close').click(function() {
+		$('.padb-modal-close').click(function() {
 			$('#padb-modal').fadeOut('slow');
 			var date = 7 * 24 * 60 * 60; // set cookie to expire after 7 days
 			wpCookies.set('padb_accepted', true, date, '/');
