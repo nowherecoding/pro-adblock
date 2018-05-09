@@ -54,7 +54,8 @@ function padb_stylesheets() {
  * Overlay generation
  */
 function padb_overlay() {
-	// the modal
+	// Don't display the modal on pages to access the privacy policy freely
+	if ( !is_page() ) {
 	?>
 	<div id="padb-modal" class="padb-style-<?php echo padb_get_option( 'modal_style' ); ?>" tabindex="-1" role="dialog">
 		<div class="padb-modal-wrapper" role="document">
@@ -72,6 +73,7 @@ function padb_overlay() {
 		</div>
 	</div>
 	<?php
+	}
 }
 
 /**
