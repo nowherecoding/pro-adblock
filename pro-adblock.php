@@ -54,15 +54,14 @@ function padb_stylesheets() {
  * Overlay generation
  */
 function padb_overlay() {
-	$options = padb_get_option( 'padb2_settings' );
 	// the modal
 	?>
-	<div id="padb-modal" class="padb-style-<?php echo $options['modal_style']; ?>" tabindex="-1" role="dialog">
+	<div id="padb-modal" class="padb-style-<?php echo padb_get_option( 'modal_style' ); ?>" tabindex="-1" role="dialog">
 		<div class="padb-modal-wrapper" role="document">
 
 			<div class="padb-modal-content">
 				<div class="padb-modal-body">
-					<?php echo wpautop( __( $options['modal_message'], 'pro-adblock' ) ); ?>
+					<?php echo wpautop( __( padb_get_option( 'modal_message' ), 'pro-adblock' ) ); ?>
 				</div>
 				<div class="padb-modal-footer">
 					<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy! Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
@@ -131,20 +130,18 @@ function padb_settings_init() {
 }
 
 function padb_message_render() {
-	$options = padb_get_option( 'padb2_settings' );
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Text', 'pro-adblock' ); ?></span></legend>
-		<textarea rows='10' cols='50' name='padb2_settings[modal_message]' class='large-text code'><?php echo $options['modal_message']; ?></textarea>
+		<textarea rows='10' cols='50' name='padb2_settings[modal_message]' class='large-text code'><?php echo padb_get_option( 'modal_message' ); ?></textarea>
 	</fieldset>
 	<?php
 }
 
 function padb_select_modal_style_render() {
-	$options = padb_get_option( 'padb2_settings' );
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Modal background', 'pro-adblock' ); ?></span></legend>
-		<label><input type="radio" name="padb2_settings[modal_style]" value="1"<?php checked( 1, $options['modal_style'], true ); ?> /> <span><?php _e( 'Dark transparent', 'pro-adblock' ); ?></span></label><br />
-		<label><input type="radio" name="padb2_settings[modal_style]" value="2"<?php checked( 2, $options['modal_style'], true ); ?> /> <span><?php _e( 'Light transparent', 'pro-adblock' ); ?></span></label>
+		<label><input type="radio" name="padb2_settings[modal_style]" value="1"<?php checked( 1, padb_get_option( 'modal_style' ), true ); ?> /> <span><?php _e( 'Dark transparent', 'pro-adblock' ); ?></span></label><br />
+		<label><input type="radio" name="padb2_settings[modal_style]" value="2"<?php checked( 2, padb_get_option( 'modal_style' ), true ); ?> /> <span><?php _e( 'Light transparent', 'pro-adblock' ); ?></span></label>
 	</fieldset>
 	<?php
 }
@@ -199,14 +196,15 @@ function padb_options_page() {
  * @param type $values
  * @return type
  */
-function padb_get_option( $values ) {
+function padb_get_option( $value ) {
 	// load default options if no entry in database
 	$defaults = array(
 		'modal_message'	=> __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
 		'modal_style'	=> '1'
 	);
 
-	$output = get_option( $values, $defaults );
+	$options = get_option( 'padb2_settings' );
+	$output = !empty($options[$value]) ? $options[$value] : $defaults[$value];
 
 	return $output;
 }
