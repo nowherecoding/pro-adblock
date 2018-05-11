@@ -14,6 +14,7 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 * Custom CSS colors removed to fit modal into installed theme styles
 * Modal elements completely redesigned
 * Privacy policy options added
+* Settings for modal delay and cookie lifetime added
 
 ### v1.2.2
 * Adding missing translation call

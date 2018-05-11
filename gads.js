@@ -15,11 +15,16 @@ jQuery(document).ready(function($) {
 
 	// show the modal if adblocker is disabled
 	if (!wpCookies.get('padb_accepted') && !isMobile) {
-		$('#padb-modal').fadeIn('slow');
+		// set the modal to appear after X seconds
+		setTimeout(function() {
+			$('#padb-modal').fadeIn('slow');
+		}, padbDelay * 1000);
+
 		// generate cookie if user closes modal
 		$('.padb-modal-close').click(function() {
 			$('#padb-modal').fadeOut('slow');
-			var date = 7 * 24 * 60 * 60; // set cookie to expire after 7 days
+			// set cookie to expire after X days
+			var date = padbExpiry * 24 * 60 * 60;
 			wpCookies.set('padb_accepted', true, date, '/');
 		});
 	} else {

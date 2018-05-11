@@ -54,7 +54,11 @@ function padb_stylesheets() {
  * Scripts enqueueing
  */
 function padb_javascripts() {
-	wp_enqueue_script( 'padb-detector', PADB_URL . 'gads.js', array('jquery', 'utils'), PADB_VERSION, true );
+	$js = '<!-- Pro-AdBlock Javascript variables -->
+		var padbDelay = %1$s; var padbExpiry = %2$s;';
+
+	wp_enqueue_script( 'padb-detector', PADB_URL . 'gads.js', array( 'jquery', 'utils' ), PADB_VERSION, true );
+	wp_add_inline_script( 'padb-detector', sprintf( $js, padb_get_option( 'modal_delay' ), padb_get_option( 'cookie_expiry' ) ), 'before' );
 }
 
 /**
@@ -129,6 +133,14 @@ function padb_settings_init() {
 	add_settings_field(
 			'modal_style', __( 'Modal background', 'pro-adblock' ), 'padb_select_modal_style_render', 'pluginPage2', 'padb_pluginPage_section_1'
 	);
+	
+	add_settings_field(
+			'modal_delay', __( 'Modal delay', 'pro-adblock' ), 'padb_modal_delay_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
+	
+	add_settings_field(
+			'cookie_expiry', __( 'Cookie lifetime', 'pro-adblock' ), 'padb_cookie_expiry_render', 'pluginPage2', 'padb_pluginPage_section_1'
+	);
 }
 
 function padb_message_render() {
@@ -144,6 +156,28 @@ function padb_select_modal_style_render() {
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Modal background', 'pro-adblock' ); ?></span></legend>
 		<label><input type="radio" name="padb2_settings[modal_style]" value="1"<?php checked( 1, padb_get_option( 'modal_style' ), true ); ?> /> <span><?php _e( 'Dark transparent', 'pro-adblock' ); ?></span></label><br />
 		<label><input type="radio" name="padb2_settings[modal_style]" value="2"<?php checked( 2, padb_get_option( 'modal_style' ), true ); ?> /> <span><?php _e( 'Light transparent', 'pro-adblock' ); ?></span></label>
+	</fieldset>
+	<?php
+}
+
+/**
+ * Modal delay
+ */
+function padb_modal_delay_render() {
+	?>
+	<fieldset><legend class="screen-reader-text"><span><?php __( 'Modal delay', 'pro-adblock' ); ?></span></legend>
+		<label><input type='number' name='padb2_settings[modal_delay]' value='<?php echo padb_get_option( 'modal_delay' ); ?>' class="small-text" /> <span><?php echo __( 'seconds', 'pro-adblock' ); ?></span></label>
+	</fieldset>
+	<?php
+}
+
+/**
+ * Cookie lifetime
+ */
+function padb_cookie_expiry_render() {
+	?>
+	<fieldset><legend class="screen-reader-text"><span><?php __( 'Cookie lifetime', 'pro-adblock' ); ?></span></legend>
+		<label><input type='text' name='padb2_settings[cookie_expiry]' value='<?php echo padb_get_option( 'cookie_expiry' ); ?>' class="small-text" /> <span><?php echo __( 'days', 'pro-adblock' ); ?></span></label>
 	</fieldset>
 	<?php
 }
@@ -196,18 +230,20 @@ function padb_options_page() {
 /**
  * Plugin settings
  *
- * @param type $values
+ * @param type $value
  * @return type
  */
 function padb_get_option( $value ) {
 	// load default options if no entry in database
 	$defaults = array(
-		'modal_message'	=> __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
-		'modal_style'	=> 1
+		'modal_message'	 => __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
+		'modal_style'	 => 1,
+		'modal_delay'	 => 10,
+		'cookie_expiry'	 => 7,
 	);
 
 	$options = get_option( 'padb2_settings' );
-	$output = !empty($options) ? $options[$value] : $defaults[$value];
+	$output	 = !empty( $options ) ? $options[$value] : $defaults[$value];
 
 	return $output;
 }

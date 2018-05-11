@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 14:28+0200\n"
-"PO-Revision-Date: 2018-05-11 12:06+0200\n"
+"POT-Creation-Date: 2018-05-11 13:13+0200\n"
+"PO-Revision-Date: 2018-05-11 13:25+0200\n"
 "Last-Translator: NowhereCoding\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -16,10 +16,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.13\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: nbproject\n"
-"X-Poedit-SearchPathExcluded-1: dev\n"
 
-#: pro-adblock.php:68
+#: pro-adblock.php:79
 msgid ""
 "By closing this notice you agree to our cookie policy! Pro-AdBlock uses a "
 "temporary cookie that is stored on your computer to disable the adblocker "
@@ -31,50 +29,66 @@ msgstr ""
 "Warnhinweis für einen bestimmten Zeitraum zu deaktivieren. Weitergehende "
 "Daten werden nicht erhoben."
 
-#: pro-adblock.php:69
+#: pro-adblock.php:80
 msgid "Accept &amp; continue"
 msgstr "Akzeptieren &amp; fortfahren"
 
-#: pro-adblock.php:86
+#: pro-adblock.php:98
 #, php-format
 msgid "For more information visit our %s."
 msgstr "Für weitere Informationen besuche unsere %s"
 
-#: pro-adblock.php:117
+#: pro-adblock.php:122
 msgid "Message"
 msgstr "Mitteilung"
 
-#: pro-adblock.php:121 pro-adblock.php:136
+#: pro-adblock.php:126 pro-adblock.php:148
 msgid "Text"
 msgstr "Text"
 
-#: pro-adblock.php:125
+#: pro-adblock.php:130
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: pro-adblock.php:129 pro-adblock.php:145
+#: pro-adblock.php:134 pro-adblock.php:156
 msgid "Modal background"
 msgstr "Modalhintergrund"
 
-#: pro-adblock.php:146
+#: pro-adblock.php:138 pro-adblock.php:168
+msgid "Modal delay"
+msgstr "Modalverzögerung"
+
+#: pro-adblock.php:142 pro-adblock.php:179
+msgid "Cookie lifetime"
+msgstr "Cookielebensdauer"
+
+#: pro-adblock.php:157
 msgid "Dark transparent"
 msgstr "Dunkel, transparent"
 
-#: pro-adblock.php:147
+#: pro-adblock.php:158
 msgid "Light transparent"
 msgstr "Hell, transparent"
 
-#: pro-adblock.php:154 pro-adblock.php:159
+#: pro-adblock.php:169
+msgid "seconds"
+msgstr "Sekunden"
+
+#: pro-adblock.php:180
+msgid "days"
+msgstr "Tage"
+
+#: pro-adblock.php:187 pro-adblock.php:192
 msgid "Privacy policy"
 msgstr "Datenschutzerklärung"
 
-#: pro-adblock.php:155
+#: pro-adblock.php:188
 msgid "You should copy &amp; paste this text into your privacy policy page."
 msgstr ""
 "Du solltest diesen Text kopieren und in deine Datenschutzerklärungsseite "
 "einfügen."
 
-#: pro-adblock.php:160
+#: pro-adblock.php:193
 msgid ""
 "<strong>Pro-AdBlock Plugin</strong>\n"
 "\n"
@@ -107,17 +121,17 @@ msgstr ""
 "einen Adblocker installiert hat, wird generell kein entsprechender Cookie "
 "auf dem Gerät des Nutzers gespeichert."
 
-#: pro-adblock.php:169
+#: pro-adblock.php:202
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: pro-adblock.php:177
+#: pro-adblock.php:210
 msgid "Pro-AdBlock Settings"
 msgstr "Einstellungen &rsaquo; Pro-AdBlock"
 
-#: pro-adblock.php:205
+#: pro-adblock.php:239
 msgid ""
 "<h2>You are not using an Adblocker?!</h2>\n"
 "\n"
