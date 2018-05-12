@@ -7,15 +7,15 @@
  */
 
 #padb-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1050;
-  display: none;
-  overflow: hidden;
-  outline: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1050;
+	display: none;
+	overflow: hidden;
+	outline: 0;
 }
 
 #padb-modal.padb-style-1 {
@@ -29,32 +29,32 @@
 }
 
 #padb-modal .padb-modal-wrapper {
-  position: relative;
-  width: auto;
-  margin: 0.5rem;
-  pointer-events: none;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: calc(100% - (0.5rem * 2));
+	position: relative;
+	width: auto;
+	margin: 0.5rem;
+	pointer-events: none;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	min-height: calc(100% - (0.5rem * 2));
 }
 
 #padb-modal .padb-modal-content {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  border-radius: 0.1rem;
-  outline: 0;
-  padding: 1rem;
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	border-radius: 0.1rem;
+	outline: 0;
+	padding: 1rem;
 }
 
 #padb-modal .padb-modal-content a {
@@ -62,41 +62,41 @@
 }
 
 #padb-modal .padb-modal-body {
-  position: relative;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+	position: relative;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 #padb-modal .padb-modal-footer {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  flex-wrap: wrap;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 #padb-modal .padb-modal-footer > :not(:first-child) {
-  margin-left: .25rem;
+	margin-left: .25rem;
 }
 
 #padb-modal .padb-modal-footer > :not(:last-child) {
-  margin-right: .25rem;
+	margin-right: .25rem;
 }
 
 @media (min-width: 768px) {
-  #padb-modal .padb-modal-wrapper {
-    max-width: 780px;
-    margin: 1.75rem auto;
-    min-height: calc(100% - (1.75rem * 2));
-  }
-  #padb-modal .padb-modal-footer {
-    -ms-flex-pack: space-between;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }  
-  #padb-modal .padb-modal-footer button {
-	white-space: nowrap;
-  }
+	#padb-modal .padb-modal-wrapper {
+		max-width: 780px;
+		margin: 1.75rem auto;
+		min-height: calc(100% - (1.75rem * 2));
+	}
+	#padb-modal .padb-modal-footer {
+		-ms-flex-pack: space-between;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+	}
+	#padb-modal .padb-modal-footer button {
+		white-space: nowrap;
+	}
 }

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
   Plugin Name: Pro-AdBlock
   Plugin URI: https://github.com/nowherecoding/pro-adblock/
   Description: Displays an overlay to users when no adblocker is enabled.
@@ -67,23 +67,23 @@ function padb_javascripts() {
 function padb_overlay() {
 	// Don't display the modal on pages to access the privacy policy freely
 	if ( !is_page() ) {
-	?>
-	<div id="padb-modal" class="padb-style-<?php echo padb_get_option( 'modal_style' ); ?>" tabindex="-1" role="dialog">
-		<div class="padb-modal-wrapper" role="document">
+		?>
+		<div id="padb-modal" class="padb-style-<?php echo padb_get_option( 'modal_style' ); ?>" tabindex="-1" role="dialog">
+			<div class="padb-modal-wrapper" role="document">
 
-			<div class="padb-modal-content">
-				<div class="padb-modal-body">
-					<?php echo wpautop( __( padb_get_option( 'modal_message' ), 'pro-adblock' ) ); ?>
+				<div class="padb-modal-content">
+					<div class="padb-modal-body">
+						<?php echo wpautop( __( padb_get_option( 'modal_message' ), 'pro-adblock' ) ); ?>
+					</div>
+					<div class="padb-modal-footer">
+						<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy! Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
+						<button type="button" class="padb-modal-close" data-dismiss="padb-modal"><?php _e( 'Accept &amp; continue', 'pro-adblock' ); ?> *</button>
+					</div>
 				</div>
-				<div class="padb-modal-footer">
-					<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy! Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
-					<button type="button" class="padb-modal-close" data-dismiss="padb-modal"><?php _e( 'Accept &amp; continue', 'pro-adblock' ); ?> *</button>
-				</div>
+
 			</div>
-
-		</div>
-	</div><!--/#padb-modal -->
-	<?php
+		</div><!--/#padb-modal -->
+		<?php
 	}
 }
 
@@ -94,7 +94,7 @@ function padb_overlay() {
  * @return type
  */
 function padb_privacy_policy_link() {
-	if ( function_exists('get_privacy_policy_url') and !empty( get_option( 'wp_page_for_privacy_policy' ) ) ) {
+	if ( function_exists( 'get_privacy_policy_url' ) and ! empty( get_option( 'wp_page_for_privacy_policy' ) ) ) {
 		return sprintf( __( "For more information visit our %s.", 'pro-adblock' ), get_the_privacy_policy_link() );
 	}
 }
@@ -118,29 +118,13 @@ function padb_settings_init() {
 	register_setting( 'pluginPage1', 'padb2_settings' );
 	register_setting( 'pluginPage2', 'padb2_settings' );
 
-	add_settings_section(
-			'padb_pluginPage_section_0', __( 'Message', 'pro-adblock' ), 'padb_settings_section_callback_1', 'pluginPage1'
-	);
+	add_settings_section( 'padb_pluginPage_section_0', __( 'Message', 'pro-adblock' ), 'padb_settings_section_callback_1', 'pluginPage1' );
+	add_settings_field( 'modal_message', __( 'Text', 'pro-adblock' ), 'padb_message_render', 'pluginPage1', 'padb_pluginPage_section_0' );
 
-	add_settings_field(
-			'modal_message', __( 'Text', 'pro-adblock' ), 'padb_message_render', 'pluginPage1', 'padb_pluginPage_section_0'
-	);
-
-	add_settings_section(
-			'padb_pluginPage_section_1', __( 'Appearance', 'pro-adblock' ), 'padb_settings_section_callback_2', 'pluginPage2'
-	);
-
-	add_settings_field(
-			'modal_style', __( 'Modal background', 'pro-adblock' ), 'padb_select_modal_style_render', 'pluginPage2', 'padb_pluginPage_section_1'
-	);
-	
-	add_settings_field(
-			'modal_delay', __( 'Modal delay', 'pro-adblock' ), 'padb_modal_delay_render', 'pluginPage2', 'padb_pluginPage_section_1'
-	);
-	
-	add_settings_field(
-			'cookie_expiry', __( 'Cookie lifetime', 'pro-adblock' ), 'padb_cookie_expiry_render', 'pluginPage2', 'padb_pluginPage_section_1'
-	);
+	add_settings_section( 'padb_pluginPage_section_1', __( 'Appearance', 'pro-adblock' ), 'padb_settings_section_callback_2', 'pluginPage2' );
+	add_settings_field( 'modal_style', __( 'Modal background', 'pro-adblock' ), 'padb_select_modal_style_render', 'pluginPage2', 'padb_pluginPage_section_1' );
+	add_settings_field( 'modal_delay', __( 'Modal delay', 'pro-adblock' ), 'padb_modal_delay_render', 'pluginPage2', 'padb_pluginPage_section_1' );
+	add_settings_field( 'cookie_expiry', __( 'Cookie lifetime', 'pro-adblock' ), 'padb_cookie_expiry_render', 'pluginPage2', 'padb_pluginPage_section_1' );
 }
 
 function padb_message_render() {
