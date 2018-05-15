@@ -220,7 +220,7 @@ function padb_options_page() {
 function padb_get_option( $value ) {
 	// load default options if no entry in database
 	$defaults = array(
-		'modal_message'	 => __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/lists.html\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
+		'modal_message'	 => __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/#list\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
 		'modal_style'	 => 1,
 		'modal_delay'	 => 10,
 		'cookie_expiry'	 => 7,
