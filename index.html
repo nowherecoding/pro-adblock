@@ -1,61 +1,303 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Pro-AdBlock by nowherecoding</title>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="NowhereCoding">
+        <meta property="og:title" content="Pro-AdBlock WordPress Plugin" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="description" content="Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled." />
+        <meta property="og:description" content="Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled." />
+        <link rel="canonical" href="https://nowherecoding.github.io/pro-adblock/" />
+        <meta property="og:url" content="https://nowherecoding.github.io/pro-adblock/" />
+        <meta property="og:site_name" content="Pro-AdBlock WordPress Plugin" />
+        <link rel="icon" href="../../../../favicon.ico">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Pro-AdBlock</h1>
-        <p>Adblocker Promotion</p>
+        <title>Pro-AdBlock WordPress Plugin</title>
 
-        <p class="view"><a href="https://github.com/nowherecoding/pro-adblock">View the Project on GitHub <small>nowherecoding/pro-adblock</small></a></p>
+        <!-- Bootstrap core CSS -->
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Custom styles for this template -->
+        <link href="./assets/css/style.css" rel="stylesheet">
+    </head>
+    <body>
 
-        <ul>
-          <li><a href="https://github.com/nowherecoding/pro-adblock/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/nowherecoding/pro-adblock/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/nowherecoding/pro-adblock">View On <strong>GitHub</strong></a></li>
-        </ul>
-        
-        <p class="view"><a href="https://nowherecoding.github.io/pro-adblock/">Home</a></p>
-        <p class="view"><a href="https://nowherecoding.github.io/pro-adblock/lists.html">List of adblockers</a></p>
-	<p class="view"><a href="https://nowherecoding.github.io/pro-adblock/screenshots.html">Screenshots</a></p>
-        <p class="view"><a href="https://nowherecoding.github.io/pro-adblock/changelog.html">Changelog</a></p>
-      </header>
-      <section>
-        <h2>
-<a id="what-is-pro-adblock" class="anchor" href="#what-is-pro-adblock" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Pro-AdBlock?</h2>
+        <div class="navigation d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5 class="my-0 mr-md-auto font-weight-normal">&#60;&#58;&#47;<strong>Nowhere</strong>Coding&#62;</h5>
+            <nav class="my-2 my-md-0 mr-md-3">
+				<a class="p-2 text-dark" href="./">Start</a>
+                <a class="p-2 text-dark" href="#why">Why</a>
+                <a class="p-2 text-dark" href="#screenshots">Screenshots</a>
+                <a class="p-2 text-dark" href="#download">Download</a>
+                <a class="p-2 text-dark" href="#changelog">Changelog</a>
+                <a class="p-2 text-dark" href="#list">Adblockers</a>
+            </nav>
+            <a class="btn btn-outline-success" href="https://github.com/nowherecoding/pro-adblock">View the Project on GitHub</a>
+        </div><!--/.navigation-->
 
-<p>Advertising displayed on webpages can be a security risk. Pro-AdBlock is a WordPress plugin that shows a warning message to users that have no adblocker enabled.</p>
+        <div class="container">
 
-<p>Pro-AdBlock originates from a <a href="http://blog.todamax.net/2015/adblocker-only-plugin-fuer-wordpress-gesucht/" target="_blank">request by a blogger</a> and the <a href="http://blog.todamax.net/2015/das-pro-adblock-plugin-und-mein-anstrengendes-publikum/" target="_blank">following discussion (in German)</a>. So we went on and make it happen.</p>
+            <div class="header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">Pro-AdBlock WordPress Plugin</h1>
+                <p class="lead">Advertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a user's surfing. This plugin supports the usage of advertisement blockers and shows a warning message to users that have no adblocker enabled.</p>
+            </div>
 
-<h2>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+            <section class="py-5">
 
-<p>Download the <a href="https://github.com/nowherecoding/pro-adblock/releases/latest">latest release</a> and extract the archive, then copy the extracted folder to your wordpress plugins directory.</p>
+                <h2><a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Pro-AdBlock?</h2>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p>Because of the never-ending discussion on the sense or nonsense of adblockers, <em>Pro-AdBlock</em> was developed: a WordPress plug-in that web site owners can install to warn their readers who do not have an Adblocker installed. It arose from <a href="http://blog.todamax.net/2015/adblocker-only-plugin-fuer-wordpress-gesucht/" class="text-link" target="_blank">a request from the blogger daMax</a> and the <a href="http://blog.todamax.net/2015/das-pro-adblock-plugin-und-mein-anstrengendes-publikum/" class="text-link" target="_blank">subsequent discussion</a>. So we got to work.</p>
 
-<p>Sergej Theiss (<a href="https://github.com/nowherecoding" class="user-mention">@nowherecoding</a>)</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/nowherecoding">crxproject</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+<p>Although we strongly support the use of adblockers, we do not generally have anything against advertising or advertisers. If someone wants to earn money with advertising, he should do it. Unfortunately, the current nature of online advertising endangers the security and privacy of users. Two dangers lurk on the web:</p>
+
+<p><strong>1. Malware</strong></p>
+
+<p>Malvertising (malicious advertising) attempts to deliver malicious software via infected advertisements to the computers of website visitors. This can not only happen on dubious websites, as many believe. The main source of distribution are <a href="http://www.bromium.com/sites/default/files/rpt-threat-report-1h2015-us-en.pdf" class="text-link" target="_blank">news and entertainment websites</a>. Criminals try to infiltrate advertising agencies in order to send malicious scripts with traditional banners.</p>
+
+<p><a href="http://dev.io/archives/2015/10/25/wie_verlage_und_werbe-industrie_unsere_sicherheit_beinflussen/index.html" class="text-link" target="_blank">Thorsten Schröder from CCC</a> writes:</p>
+
+<blockquote><p>An ad network, which is usually used as a service provider for online portals, brings with it a danger: malicious software. It arbitrarily endangers unsuspecting users who visit any web page - and it does not matter if it's a well-known, legitimate news site or a web server for swapping porn images: in case of doubt both will be supplied with ads and malware by the same ad network. This concerns us all, even if it currently looks, as if only a marginal group takes care of the problem.</p></blockquote>
+
+<p>In the last quarter of 2014 alone, users were <a href="http://www.zdnet.com/article/report-3-million-malvertising-impressions-served-per-day/" class="text-link" target="_blank">lured to malware advertising 3 million times a day</a>. And the trend is still increasing.</p>
+
+<p><strong>2. Tracking</strong></p>
+
+<p>Almost every page view is saved by advertisers. <a href="https://www.datenschutzzentrum.de/tracking" class="text-link" target="_blank">The surfing behavior of the user is spied on</a> in order to then show the user personally tailored advertising from this information:</p>
+
+<blockquote><p>The recording and examination of user behavior on the Internet is a common practice on many websites. Users often do not know that tracking services are used at all. The possibilities of the examination are generally underestimated.</p></blockquote>
+
+<p>Often the obtained data are <a href="http://www.zeit.de/digital/datenschutz/2012-04/cookies-tracking-gegenwehr" class="text-link" target="_blank">lucratively resold to third parties.</a></p>
+
+<p>Whereby the possibly larger problem can be seen in point 2. The risk of your computer being infected with malware is "relatively low", whereas tracking is practically always the case.</p>
+
+<p>An adblocker protects during the internet surfing. To make Internet users aware of the potential dangers of online advertising, <em>Pro-AdBlock</em> was invented. It's ready for download from the <a href="https://wordpress.org/plugins/pro-adblock/" class="text-link" target="_blank">WordPress plugin directory</a> as well as on <a href="https://github.com/nowherecoding/pro-adblock/" class="text-link" target="_blank">GitHub</a>. <em>Pro-AdBlock</em> has options for freely selectable text and other customizable options. It also supports multilingualism.</p>
+
+<p>Many thanks to daMax for the suggestions and LUCiDdev for the development of a <a href="http://www.therealsystemerror.de/blog/lucid-pro-adblock-joomla-plugin.html" class="text-link" target="_blank">Joomla variant of Pro-AdBlock</a>.</p>
+            </section>
+
+            <section class="py-5">
+                <h2><a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+
+                <figure><a href="./images/wp_proadblock_screenshot_frontend.png"><img src="./images/wp_proadblock_screenshot_frontend.png" class="img-fluid" alt="proadblock_screenshot_frontend" /></a><figcaption class="font-italic"> Frontend</figcaption></figure>
+
+                <figure><a href="./images/wp_proadblock_screenshot_admin.png"><img src="./images/wp_proadblock_screenshot_admin.png" class="img-fluid" alt="proadblock_screenshot_admin" /></a><figcaption class="font-italic"> Admin Panel</figcaption></figure>
+
+            </section>
+
+            <section class="py-5">
+                <h2><a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+                <p>
+                    <img src="https://img.shields.io/wordpress/v/pro-adblock.svg" alt="WordPress Tested" />
+                    <img src="https://img.shields.io/github/license/nowherecoding/pro-adblock.svg" alt="License" />
+                </p>
+
+                <h5>Latest release</h5>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="w-50">
+                            Download from GitHub:<br />
+                            <img src="https://img.shields.io/github/release/nowherecoding/pro-adblock.svg" alt="Latest Release" />
+                            <img src="https://img.shields.io/github/downloads/nowherecoding/pro-adblock/total.svg" alt="Total Downloads" />
+                        </td>
+                        <td>
+                            <a href="https://github.com/nowherecoding/pro-adblock/zipball/master" class="btn btn-lg btn-outline-primary mb-3 mb-md-0 mr-md-3">Download <strong>ZIP File</strong></a>
+                            <a href="https://github.com/nowherecoding/pro-adblock/tarball/master" class="btn btn-lg btn-outline-primary">Download <strong>TAR Ball</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Download from WordPress:<br />
+                            <img src="https://img.shields.io/wordpress/plugin/v/pro-adblock.svg" alt="Latest Release" />
+                            <img src="https://img.shields.io/wordpress/plugin/dt/pro-adblock.svg" alt="Total Downloads" />
+                        </td>
+                        <td>
+                            <a href="https://downloads.wordpress.org/plugin/pro-adblock.zip" class="btn btn-lg btn-outline-primary mb-3 mb-md-0 mr-md-3">Download <strong>ZIP File</strong></a>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>Other Downloads</h4>
+
+                <h5>Beta release</h5>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="w-50">
+                            Download from GitHub:<br />
+                            <img src="https://img.shields.io/github/release/nowherecoding/pro-adblock/all.svg" alt="Beta Release" />
+                        </td>
+                        <td>
+                            <a href="https://github.com/nowherecoding/pro-adblock/releases/download/v2.0.beta-2/pro-adblock-2.0.beta-2.zip" class="btn btn-lg btn-outline-primary">Download <strong>ZIP File</strong></a>
+                        </td>
+                    </tr>
+                </table>
+
+            </section>
+
+            <section class="py-5">
+                <h2><a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+                <h5>v1.2.2</h5>
+                <ul>
+                    <li>Missing translation call added</li>
+                </ul>
+
+                <h5>v1.2.1</h5>
+                <ul>
+                    <li>Missing text domain added</li>
+                </ul>
+
+                <h5>v1.2.0</h5>
+                <ul>
+                    <li>CSS files merged</li>
+                    <li>JS function moved into file</li>
+                    <li>Modal appearance improved</li>
+                </ul>
+
+                <h5>v1.1.1</h5>
+                <ul>
+                    <li>Minor bug fix</li>
+                </ul>
+
+                <h5>v1.1.0</h5>
+                <ul>
+                    <li>Modal appearance improved</li>
+                    <li>Minor code changes</li>
+                </ul>
+
+                <h5>v1.0.1</h5>
+                <ul>
+                    <li>Directory tree rearranged</li>
+                    <li>Cookie generation using 'wpCookies'</li>
+                    <li>Modal appearance improved</li>
+                </ul>
+
+                <h5>v1.0.0</h5>
+                <ul>
+                    <li>Style switcher added and modal box appearance improved</li>
+                    <li>Plugin localization added</li>
+                    <li>Plugin settings call up improved</li>
+                    <li>Cookie validity period shortened</li>
+                    <li>Minor code changes</li>
+                </ul>
+
+                <h5>v0.9.5</h5>
+                <ul>
+                    <li>WP plugin options page integrated that let users to customise the modal text and appearance.</li>
+                    <li>Minor code changes</li>
+                </ul>
+
+                <h5>v0.9.4</h5>
+                <ul>
+                    <li>WordPress coding standards applied</li>
+                    <li>Adblocker detection simplified</li>
+                    <li>Support for BlockAdBlock dropped</li>
+                </ul>
+
+                <h5>v0.9.3</h5>
+                <ul>
+                    <li>Showing overlay on mobile devices (temporarily) disabled</li>
+                    <li>Minor code corrections</li>
+                </ul>
+
+                <h5>v0.9.2</h5>
+                <ul>
+                    <li>Adblocker detection added</li>
+                    <li>Cookie support added</li>
+                    <li>Modal closer added</li>
+                    <li>Function names and variables eqalized</li>
+                    <li>Style slightly modified</li>
+                </ul>
+
+                <h5>v0.9.1</h5>
+                <ul>
+                    <li>Links to several adblockers added</li>
+                    <li>Displayed text changed</li>
+                </ul>
+
+                <h5>v0.9.0</h5>
+                Initial release
+
+            </section>
+
+            <section class="py-5">
+                <h2><a id="list" class="anchor" href="#list" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of adblockers</h2>
+
+                <p><strong>uBlock Origin</strong> - An efficient blocker for Chromium and Firefox. Fast and lean. <a href="https://github.com/gorhill/uBlock" target="_blank">(Homepage)</a></p>
+
+                <span>Available for:</span>
+
+                <ul>
+                    <li><a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm" target="_blank">Chrome</a></li>
+                    <li><a href="https://addons.opera.com/en/extensions/details/ublock/" target="_blank">Opera</a></li>
+                    <li><a href="https://addons.mozilla.org/addon/ublock-origin/" target="_blank">Firefox</a></li>
+                    <li><a href="https://www.microsoft.com/store/p/app/9nblggh444l4" target="_blank">Microsoft Edge</a></li>
+                    <li><a href="https://extensions.apple.com/details/?id=net.gorhill.uBlock-96G4BAKDQ9" target="_blank">Safari</a></li>
+                </ul>
+
+                <p><strong>AdGuard</strong> - The fastest and lightweight ad blocking extension for browser. <a href="https://adguard.com/en/adguard-adblock-browser-extension/overview.html" target="_blank">(Homepage)</a></p>
+
+                <span>Available for:</span>
+
+                <ul>
+                    <li><a href="https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg" target="_blank">Chrome</a></li>
+                    <li><a href="https://chrome.adtidy.org/app.html?app=main.xpi" target="_blank">Firefox</a></li>
+                    <li><a href="https://addons.opera.com/extensions/details/adguard/" target="_blank">Opera</a></li>
+                    <li><a href="https://adguard.com/en/adguard-browser-extension/edge.html" target="_blank">Edge</a></li>
+                    <li><a href="https://safari-extensions.apple.com/details/?id=com.adguard.safari-N33TQXN8C7" target="_blank">Safari</a></li>
+                    <li><a href="https://adguard.com/en/adguard-browser-extension/yandex.html" target="_blank">Yandex</a></li>
+                </ul>
+
+                <p><strong>AdBlock Plus</strong> - Surf the web without annoying ads! <a href="https://adblockplus.org/" target="_blank">(Homepage)</a></p>
+
+                <span>Available for:</span>
+
+                <ul>
+                    <li><a href="https://adblockplus.org/en/firefox" target="_blank">Firefox</a></li>
+                    <li><a href="https://adblockplus.org/en/chrome" target="_blank">Chrome</a></li>
+                    <li><a href="https://adblockplus.org/en/android" target="_blank">Android</a></li>
+                    <li><a href="https://adblockplus.org/en/opera" target="_blank">Opera</a></li>
+                    <li><a href="https://adblockplus.org/en/internet-explorer" target="_blank">Internet Explorer</a></li>
+                    <li><a href="https://adblockplus.org/en/safari" target="_blank">Safari</a></li>
+                    <li><a href="https://adblockplus.org/en/yandex-browser" target="_blank">Yandex</a></li>
+                    <li><a href="https://adblockplus.org/en/maxthon" target="_blank">Maxthon</a></li>
+                    <li><a href="https://adblockplus.org/en/edge" target="_blank">Microsoft Edge</a></li>
+                </ul>
+
+                <p><strong>uMatrix</strong> - Point and click matrix to filter net requests. For advanced users. <a href="https://github.com/gorhill/uMatrix" target="_blank">(Homepage)</a></p>
+
+                <span>Available for:</span>
+
+                <ul>
+                    <li><a href="https://chrome.google.com/webstore/detail/%C2%B5matrix/ogfcmafjalglgifnmanfmnieipoejdcf" target="_blank">Chrome</a></li>
+                    <li><a href="https://addons.mozilla.org/firefox/addon/umatrix/" target="_blank">Firefox</a></li>
+                    <li><a href="https://addons.opera.com/en-gb/extensions/details/umatrix/" target="_blank">Opera</a></li>
+                </ul>
+
+            </section>
+
+            <footer class="border-top py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <p>This project is maintained by <a href="https://github.com/nowherecoding">NowhereCoding</a></p>
+                        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://getbootstrap.com/">Twitter Bootstrap</a></small></p>
+                        <small class="d-block mb-3 text-muted">&copy; 2015-2018</small>
+                    </div>
+
+                </div><!--/.row-->
+            </footer>
+
+        </div><!--/.container-->
+
+        <span id="goto-top"><img src="./assets/img/scroll-to-top.png" alt="Back to Top" width="50" height="50"><br />Back to Top</span>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="./assets/js/functions.js"></script>
+
+    </body>
 </html>
