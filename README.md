@@ -1,4 +1,10 @@
-# Pro-AdBlock
+# Pro-AdBlock WordPress Plugin
+
+[![WordPress](https://img.shields.io/wordpress/v/pro-adblock.svg)](http://wordpress.org/plugins/pro-adblock/)
+[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/pro-adblock.svg)](http://wordpress.org/plugins/pro-adblock/)
+[![License](https://img.shields.io/github/license/nowherecoding/pro-adblock.svg)](https://nowherecoding.github.io/pro-adblock/)
+
+## Description
 
 Advertising displayed on webpages can be a security risk. Currently, the advertising consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects a user's surfing. This plugin supports the usage of advertisement blockers and shows a warning message to users that have no adblocker enabled.
 
@@ -64,7 +70,7 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 * Showing overlay on mobile devices (temporarily) disabled
 * Minor code corrections
 
-###v0.9.2
+### v0.9.2
 
 * Adblocker detection added
 * Cookie support added
