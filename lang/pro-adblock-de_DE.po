@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-11 13:13+0200\n"
-"PO-Revision-Date: 2018-05-15 16:01+0200\n"
+"POT-Creation-Date: 2018-05-16 15:50+0200\n"
+"PO-Revision-Date: 2018-05-16 15:51+0200\n"
 "Last-Translator: NowhereCoding\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -38,57 +38,57 @@ msgstr "Akzeptieren &amp; fortfahren"
 msgid "For more information visit our %s."
 msgstr "Für weitere Informationen besuche unsere %s."
 
-#: pro-adblock.php:122
+#: pro-adblock.php:121
 msgid "Message"
 msgstr "Mitteilung"
 
-#: pro-adblock.php:126 pro-adblock.php:148
+#: pro-adblock.php:122 pro-adblock.php:132
 msgid "Text"
 msgstr "Text"
 
-#: pro-adblock.php:130
+#: pro-adblock.php:124
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: pro-adblock.php:134 pro-adblock.php:156
+#: pro-adblock.php:125 pro-adblock.php:140
 msgid "Modal background"
 msgstr "Modalhintergrund"
 
-#: pro-adblock.php:138 pro-adblock.php:168
+#: pro-adblock.php:126 pro-adblock.php:152
 msgid "Modal delay"
 msgstr "Modalverzögerung"
 
-#: pro-adblock.php:142 pro-adblock.php:179
+#: pro-adblock.php:127 pro-adblock.php:163
 msgid "Cookie lifetime"
 msgstr "Cookielebensdauer"
 
-#: pro-adblock.php:157
+#: pro-adblock.php:141
 msgid "Dark transparent"
 msgstr "Dunkel, transparent"
 
-#: pro-adblock.php:158
+#: pro-adblock.php:142
 msgid "Light transparent"
 msgstr "Hell, transparent"
 
-#: pro-adblock.php:169
-msgid "seconds"
-msgstr "Sekunden"
+#: pro-adblock.php:153
+msgid "Waiting time in seconds before message appears"
+msgstr "Wartezeit in Sekunden bevor die Nachricht erscheint"
 
-#: pro-adblock.php:180
-msgid "days"
-msgstr "Tage"
+#: pro-adblock.php:164
+msgid "Time in days after cookie gets auto deleted"
+msgstr "Zeit in Tagen bis der Cookie automatisch gelöscht wird"
 
-#: pro-adblock.php:187 pro-adblock.php:192
+#: pro-adblock.php:171 pro-adblock.php:176
 msgid "Privacy policy"
 msgstr "Datenschutzerklärung"
 
-#: pro-adblock.php:188
+#: pro-adblock.php:172
 msgid "You should copy &amp; paste this text into your privacy policy page."
 msgstr ""
 "Du solltest diesen Text kopieren und in deine Datenschutzerklärungsseite "
 "einfügen."
 
-#: pro-adblock.php:193
+#: pro-adblock.php:177
 msgid ""
 "<strong>Pro-AdBlock Plugin</strong>\n"
 "\n"
@@ -121,17 +121,17 @@ msgstr ""
 "einen Adblocker installiert hat, wird generell kein entsprechender Cookie "
 "auf dem Gerät des Nutzers gespeichert."
 
-#: pro-adblock.php:202
+#: pro-adblock.php:186
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: pro-adblock.php:210
+#: pro-adblock.php:194
 msgid "Pro-AdBlock Settings"
 msgstr "Einstellungen &rsaquo; Pro-AdBlock"
 
-#: pro-adblock.php:239
+#: pro-adblock.php:223
 msgid ""
 "<h2>You are not using an Adblocker?!</h2>\n"
 "\n"
