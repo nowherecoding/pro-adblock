@@ -151,7 +151,7 @@ function padb_select_modal_style_render() {
 function padb_modal_delay_render() {
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php __( 'Modal delay', 'pro-adblock' ); ?></span></legend>
-		<label><input type='number' name='padb2_settings[modal_delay]' value='<?php echo padb_get_option( 'modal_delay' ); ?>' class="small-text" /> <span><?php echo __( 'Waiting time in seconds before message appears', 'pro-adblock' ); ?></span></label>
+		<label><input type='number' name='padb2_settings[modal_delay]' value='<?php echo padb_get_option( 'modal_delay' ); ?>' min="0" class="small-text" /> <span><?php echo __( 'Waiting time in seconds before message appears', 'pro-adblock' ); ?></span></label>
 	</fieldset>
 	<?php
 }
@@ -162,7 +162,7 @@ function padb_modal_delay_render() {
 function padb_cookie_expiry_render() {
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php __( 'Cookie lifetime', 'pro-adblock' ); ?></span></legend>
-		<label><input type='text' name='padb2_settings[cookie_expiry]' value='<?php echo padb_get_option( 'cookie_expiry' ); ?>' class="small-text" /> <span><?php echo __( 'Time in days after cookie gets auto deleted', 'pro-adblock' ); ?></span></label>
+		<label><input type='number' name='padb2_settings[cookie_expiry]' value='<?php echo padb_get_option( 'cookie_expiry' ); ?>' min="0" class="small-text" /> <span><?php echo __( 'Time in days after cookie gets auto deleted', 'pro-adblock' ); ?></span></label>
 	</fieldset>
 	<?php
 }
