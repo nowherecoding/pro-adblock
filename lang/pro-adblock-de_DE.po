@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-16 15:50+0200\n"
-"PO-Revision-Date: 2018-05-16 15:51+0200\n"
+"POT-Creation-Date: 2018-05-16 20:56+0200\n"
+"PO-Revision-Date: 2018-05-16 20:58+0200\n"
 "Last-Translator: NowhereCoding\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: pro-adblock.php:79
 msgid ""
-"By closing this notice you agree to our cookie policy! Pro-AdBlock uses a "
+"By closing this notice you agree to our cookie policy. Pro-AdBlock uses a "
 "temporary cookie that is stored on your computer to disable the adblocker "
 "alert for a certain time. Further data are not collected."
 msgstr ""
@@ -38,100 +38,95 @@ msgstr "Akzeptieren &amp; fortfahren"
 msgid "For more information visit our %s."
 msgstr "Für weitere Informationen besuche unsere %s."
 
-#: pro-adblock.php:121
+#: pro-adblock.php:122
 msgid "Message"
 msgstr "Mitteilung"
 
-#: pro-adblock.php:122 pro-adblock.php:132
+#: pro-adblock.php:123 pro-adblock.php:133
 msgid "Text"
 msgstr "Text"
 
-#: pro-adblock.php:124
+#: pro-adblock.php:125
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: pro-adblock.php:125 pro-adblock.php:140
+#: pro-adblock.php:126 pro-adblock.php:141
 msgid "Modal background"
 msgstr "Modalhintergrund"
 
-#: pro-adblock.php:126 pro-adblock.php:152
+#: pro-adblock.php:127 pro-adblock.php:153
 msgid "Modal delay"
 msgstr "Modalverzögerung"
 
-#: pro-adblock.php:127 pro-adblock.php:163
+#: pro-adblock.php:128 pro-adblock.php:164
 msgid "Cookie lifetime"
 msgstr "Cookielebensdauer"
 
-#: pro-adblock.php:141
+#: pro-adblock.php:142
 msgid "Dark transparent"
 msgstr "Dunkel, transparent"
 
-#: pro-adblock.php:142
+#: pro-adblock.php:143
 msgid "Light transparent"
 msgstr "Hell, transparent"
 
-#: pro-adblock.php:153
+#: pro-adblock.php:154
 msgid "Waiting time in seconds before message appears"
 msgstr "Wartezeit in Sekunden bevor die Nachricht erscheint"
 
-#: pro-adblock.php:164
+#: pro-adblock.php:165
 msgid "Time in days after cookie gets auto deleted"
 msgstr "Zeit in Tagen bis der Cookie automatisch gelöscht wird"
 
-#: pro-adblock.php:171 pro-adblock.php:176
-msgid "Privacy policy"
-msgstr "Datenschutzerklärung"
+#: pro-adblock.php:175
+msgid "Suggested text:"
+msgstr "Textvorschlag:"
 
-#: pro-adblock.php:172
-msgid "You should copy &amp; paste this text into your privacy policy page."
-msgstr ""
-"Du solltest diesen Text kopieren und in deine Datenschutzerklärungsseite "
-"einfügen."
+#: pro-adblock.php:180
+msgid "What personal data we collect and why we collect it"
+msgstr "Welche personenbezogenen Daten wir sammeln und warum wir sie sammeln"
 
-#: pro-adblock.php:177
+#: pro-adblock.php:181
 msgid ""
-"<strong>Pro-AdBlock Plugin</strong>\n"
-"\n"
-"Within our online presence we use the plugin Pro-AdBlock by the developer "
-"NowhereCoding.\n"
-"\n"
-"The use of Pro-AdBlock is based on our legitimate interests within the "
+"We use the plugin Pro-AdBlock based on our legitimate interests within the "
 "meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we "
 "alert users about the dangers of surfing without an adblocker browser plug-"
-"in and offer them the opportunity to install one.\n"
-"\n"
+"in and offer them the opportunity to install one."
+msgstr ""
+"Wir setzen das Plugin Pro-AdBlock auf Grundlage unserer berechtigten "
+"Interessen im Sinne des Art. 6 (1) lit. f DSGVO ein, da wir mit Hilfe von "
+"Pro-AdBlock die Nutzer auf die Gefahren des Surfens ohne ein Adblocker-"
+"Browser-Plug-in hinweisen und ihnen die Möglichkeit bieten, eines zu "
+"installieren."
+
+#: pro-adblock.php:182
+msgid ""
 "Pro-AdBlock uses a temporary cookie that is stored on your computer to "
 "disable the adblocker alert for a certain time. Further data are not "
 "collected. If a user has installed an adblocker, generally no associated "
 "cookie will be stored on the user's device."
 msgstr ""
-"<strong>Pro-AdBlock Plugin</strong>\n"
-"\n"
-"Wir setzen innerhalb unserer Onlinepräsenz das Plugin Pro-AdBlock des "
-"Entwicklers NowhereCoding ein.\n"
-"\n"
-"Die Nutzung von Pro-AdBlock erfolgt auf Grundlage unserer berechtigten "
-"Interessen im Sinne des Art. 6 (1) lit. f DSGVO, da wir mit Hilfe von Pro-"
-"AdBlock die Nutzer auf die Gefahren des Surfens ohne ein Adblocker-Browser-"
-"Plug-in hinweisen und ihnen die Möglichkeit bieten, eines zu installieren.\n"
-"\n"
 "Pro-AdBlock verwendet ein temporäres Cookie, dass auf ihrem Computer "
 "gespeichert wird, um den Adblocker-Warnhinweis für einen bestimmten Zeitraum "
 "zu deaktivieren. Weitergehende Daten werden nicht erhoben. Wenn ein Nutzer "
 "einen Adblocker installiert hat, wird generell kein entsprechender Cookie "
 "auf dem Gerät des Nutzers gespeichert."
 
-#: pro-adblock.php:186
+#: pro-adblock.php:192
+msgid "Pro-AdBlock Plugin"
+msgstr "Pro-AdBlock Plugin"
+
+#: pro-adblock.php:196
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: pro-adblock.php:194
+#: pro-adblock.php:204
 msgid "Pro-AdBlock Settings"
 msgstr "Einstellungen &rsaquo; Pro-AdBlock"
 
-#: pro-adblock.php:223
+#: pro-adblock.php:231
 msgid ""
 "<h2>You are not using an Adblocker?!</h2>\n"
 "\n"
