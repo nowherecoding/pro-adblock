@@ -76,7 +76,7 @@ function padb_overlay() {
 						<?php echo wpautop( __( padb_get_option( 'modal_message' ), 'pro-adblock' ) ); ?>
 					</div>
 					<div class="padb-modal-footer">
-						<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy! Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
+						<small>(*) <?php _e( 'By closing this notice you agree to our cookie policy. Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected.', 'pro-adblock' ); ?> <?php echo padb_privacy_policy_link(); ?></small>
 						<button type="button" class="padb-modal-close" data-dismiss="padb-modal"><?php _e( 'Accept &amp; continue', 'pro-adblock' ); ?> *</button>
 					</div>
 				</div>
@@ -109,6 +109,7 @@ add_action( 'wp_footer', 'padb_overlay' );
 
 add_action( 'admin_menu', 'padb_add_admin_menu' );
 add_action( 'admin_init', 'padb_settings_init' );
+add_action( 'admin_init', 'padb_add_privacy_policy_content' );
 
 function padb_add_admin_menu() {
 	add_options_page( 'Pro-AdBlock Settings', 'Pro-AdBlock', 'manage_options', 'pro-adblock-options', 'padb_options_page' );
@@ -166,20 +167,29 @@ function padb_cookie_expiry_render() {
 	<?php
 }
 
-function padb_privacy_notice() {
-	?>
-	<h2><?php _e( 'Privacy policy', 'pro-adblock' ); ?></h2>
-	<?php _e( 'You should copy &amp; paste this text into your privacy policy page.', 'pro-adblock' ); ?>
-	<table class="form-table">
-		<tr>
-			<td>
-				<fieldset><legend class="screen-reader-text"><span><?php _e( 'Privacy policy', 'pro-adblock' ); ?></span></legend>
-					<textarea rows='10' cols='50' class='large-text code' readonly='readonly'><?php _e( "<strong>Pro-AdBlock Plugin</strong>\n\nWithin our online presence we use the plugin Pro-AdBlock by the developer NowhereCoding.\n\nThe use of Pro-AdBlock is based on our legitimate interests within the meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we alert users about the dangers of surfing without an adblocker browser plug-in and offer them the opportunity to install one.\n\nPro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected. If a user has installed an adblocker, generally no associated cookie will be stored on the user's device.", 'pro-adblock' ); ?></textarea>
-				</fieldset>
-			</td>
-		</tr>
-	</table>
-	<?php
+/**
+ * Privacy notice
+ */
+function padb_get_default_privacy_content( $descr = false ) {
+
+	$suggested_text	 = $descr ? '<strong class="privacy-policy-tutorial">' . __( 'Suggested text:', 'pro-adblock' ) . ' </strong>' : '';
+	$content		 = '';
+
+	// Start of the suggested privacy policy text.
+	$descr && $content .= '<div class="wp-suggested-text">';
+	$content .= '<h3>' . __( 'What personal data we collect and why we collect it', 'pro-adblock' ) . '</h3>';
+	$content .= '<p>' . $suggested_text . __( "We use the plugin Pro-AdBlock based on our legitimate interests within the meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we alert users about the dangers of surfing without an adblocker browser plug-in and offer them the opportunity to install one.", 'pro-adblock' ) . '</p>';
+	$content .= '<p>' . __( "Pro-AdBlock uses a temporary cookie that is stored on your computer to disable the adblocker alert for a certain time. Further data are not collected. If a user has installed an adblocker, generally no associated cookie will be stored on the user's device.", 'pro-adblock' ) . '</p>';
+	$content .= '</div>';
+
+	return apply_filters( 'wp_get_default_privacy_policy_content', $content );
+}
+
+function padb_add_privacy_policy_content() {
+
+	$content = padb_get_default_privacy_content( true );
+
+	wp_add_privacy_policy_content( __( 'Pro-AdBlock Plugin', 'pro-adblock' ), $content );
 }
 
 function padb_settings_section_callback_1() {
@@ -204,8 +214,6 @@ function padb_options_page() {
 			?>
 
 		</form>
-
-		<?php padb_privacy_notice(); ?>
 
 	</div>
 	<?php
