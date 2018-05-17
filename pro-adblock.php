@@ -89,7 +89,7 @@ function padb_overlay() {
 
 /**
  * Display a link to the privacy policy
- * This is works only in WP 4.9.6+ and if you have generated a privacy police page in the settings
+ * This is available only in WP 4.9.6+ and if you have generated a privacy police page in the settings
  *
  * @return type
  */
@@ -168,7 +168,12 @@ function padb_cookie_expiry_render() {
 }
 
 /**
- * Privacy notice
+ * Return the default suggested privacy policy content
+ *
+ * @since WP 4.9.6
+ *
+ * @param type $descr
+ * @return type
  */
 function padb_get_default_privacy_content( $descr = false ) {
 
@@ -185,6 +190,11 @@ function padb_get_default_privacy_content( $descr = false ) {
 	return apply_filters( 'wp_get_default_privacy_policy_content', $content );
 }
 
+/**
+ * Add the suggested privacy policy text to the policy postbox
+ *
+ * @since 4.9.6
+ */
 function padb_add_privacy_policy_content() {
 
 	$content = padb_get_default_privacy_content( true );
