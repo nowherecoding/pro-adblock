@@ -189,7 +189,9 @@ function padb_add_privacy_policy_content() {
 
 	$content = padb_get_default_privacy_content( true );
 
-	wp_add_privacy_policy_content( __( 'Pro-AdBlock Plugin', 'pro-adblock' ), $content );
+	if ( function_exists( 'wp_add_privacy_policy_content' ) ) {
+		wp_add_privacy_policy_content( __( 'Pro-AdBlock Plugin', 'pro-adblock' ), $content );
+	}
 }
 
 function padb_settings_section_callback_1() {
