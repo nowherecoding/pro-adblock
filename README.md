@@ -2,7 +2,7 @@
 
 [![WordPress](https://img.shields.io/wordpress/v/pro-adblock.svg)](http://wordpress.org/plugins/pro-adblock/)
 [![Total Downloads](https://img.shields.io/wordpress/plugin/dt/pro-adblock.svg)](http://wordpress.org/plugins/pro-adblock/)
-[![License](https://img.shields.io/github/license/nowherecoding/pro-adblock.svg)](https://nowherecoding.github.io/pro-adblock/)
+[![License](https://img.shields.io/github/license/nowherecoding/pro-adblock.svg)](https://github.com/nowherecoding/pro-adblock/blob/master/LICENSE)
 
 ## Description
 
