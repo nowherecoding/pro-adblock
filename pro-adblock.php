@@ -35,6 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Constants
 define( 'PADB_VERSION', '2.0.0-beta' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
+define( 'PADB_MIN_WP_VERSION', '4.9.6' );
 
 // load the plugin's translated strings
 add_action( 'init', 'padb_load_textdomain' );
@@ -110,6 +111,17 @@ add_action( 'wp_footer', 'padb_overlay' );
 add_action( 'admin_menu', 'padb_add_admin_menu' );
 add_action( 'admin_init', 'padb_settings_init' );
 add_action( 'admin_init', 'padb_add_privacy_policy_content' );
+add_action( 'padb_notices', 'padb_wp_upgrade_notice' );
+
+/**
+ * Suggest an upgrade on WordPress versions lesser than 4.9.6
+ */
+function padb_wp_upgrade_notice() {
+	if ( version_compare( get_bloginfo( 'version' ), PADB_MIN_WP_VERSION, '<' ) ) {
+		$message = sprintf( __( 'Pro-AdBlock requires at least WP version %1$s to get fully functional. You are running version %2$s. Please upgrade WordPress.', 'pro-adblock' ), PADB_MIN_WP_VERSION, get_bloginfo( 'version' ) );
+		printf( '<div class="notice notice-warning"><p>%s</p></div>', $message );
+	}
+}
 
 function padb_add_admin_menu() {
 	add_options_page( 'Pro-AdBlock Settings', 'Pro-AdBlock', 'manage_options', 'pro-adblock-options', 'padb_options_page' );
@@ -214,6 +226,8 @@ function padb_options_page() {
 	?>
 	<div class="wrap">
 		<h1><?php _e( 'Pro-AdBlock Settings', 'pro-adblock' ); ?></h1>
+
+		<?php do_action( 'padb_notices' ); ?>
 
 		<form action='options.php' method='post'>
 

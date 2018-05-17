@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pro-AdBlock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-16 20:56+0200\n"
-"PO-Revision-Date: 2018-05-16 20:58+0200\n"
+"POT-Creation-Date: 2018-05-17 13:00+0200\n"
+"PO-Revision-Date: 2018-05-17 13:01+0200\n"
 "Last-Translator: NowhereCoding\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: pro-adblock.php:79
+#: pro-adblock.php:80
 msgid ""
 "By closing this notice you agree to our cookie policy. Pro-AdBlock uses a "
 "temporary cookie that is stored on your computer to disable the adblocker "
@@ -29,64 +29,73 @@ msgstr ""
 "Warnhinweis für einen bestimmten Zeitraum zu deaktivieren. Weitergehende "
 "Daten werden nicht erhoben."
 
-#: pro-adblock.php:80
+#: pro-adblock.php:81
 msgid "Accept &amp; continue"
 msgstr "Akzeptieren &amp; fortfahren"
 
-#: pro-adblock.php:98
+#: pro-adblock.php:99
 #, php-format
 msgid "For more information visit our %s."
 msgstr "Für weitere Informationen besuche unsere %s."
 
-#: pro-adblock.php:122
+#: pro-adblock.php:121
+#, php-format
+msgid ""
+"Pro-AdBlock requires at least WP version %1$s to get fully functional. You "
+"are running version %2$s. Please upgrade WordPress."
+msgstr ""
+"Pro-AdBlock benötigt mindestens WP Version %1$s um voll funktionsfähig zu "
+"sein. Du führst Version %2$s aus. Bitte upgrade WordPress."
+
+#: pro-adblock.php:134
 msgid "Message"
 msgstr "Mitteilung"
 
-#: pro-adblock.php:123 pro-adblock.php:133
+#: pro-adblock.php:135 pro-adblock.php:145
 msgid "Text"
 msgstr "Text"
 
-#: pro-adblock.php:125
+#: pro-adblock.php:137
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: pro-adblock.php:126 pro-adblock.php:141
+#: pro-adblock.php:138 pro-adblock.php:153
 msgid "Modal background"
 msgstr "Modalhintergrund"
 
-#: pro-adblock.php:127 pro-adblock.php:153
+#: pro-adblock.php:139 pro-adblock.php:165
 msgid "Modal delay"
 msgstr "Modalverzögerung"
 
-#: pro-adblock.php:128 pro-adblock.php:164
+#: pro-adblock.php:140 pro-adblock.php:176
 msgid "Cookie lifetime"
 msgstr "Cookielebensdauer"
 
-#: pro-adblock.php:142
+#: pro-adblock.php:154
 msgid "Dark transparent"
 msgstr "Dunkel, transparent"
 
-#: pro-adblock.php:143
+#: pro-adblock.php:155
 msgid "Light transparent"
 msgstr "Hell, transparent"
 
-#: pro-adblock.php:154
+#: pro-adblock.php:166
 msgid "Waiting time in seconds before message appears"
 msgstr "Wartezeit in Sekunden bevor die Nachricht erscheint"
 
-#: pro-adblock.php:165
+#: pro-adblock.php:177
 msgid "Time in days after cookie gets auto deleted"
 msgstr "Zeit in Tagen bis der Cookie automatisch gelöscht wird"
 
-#: pro-adblock.php:175
+#: pro-adblock.php:192
 msgid "Suggested text:"
 msgstr "Textvorschlag:"
 
-#: pro-adblock.php:180
+#: pro-adblock.php:197
 msgid "What personal data we collect and why we collect it"
 msgstr "Welche personenbezogenen Daten wir sammeln und warum wir sie sammeln"
 
-#: pro-adblock.php:181
+#: pro-adblock.php:198
 msgid ""
 "We use the plugin Pro-AdBlock based on our legitimate interests within the "
 "meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we "
@@ -99,7 +108,7 @@ msgstr ""
 "Browser-Plug-in hinweisen und ihnen die Möglichkeit bieten, eines zu "
 "installieren."
 
-#: pro-adblock.php:182
+#: pro-adblock.php:199
 msgid ""
 "Pro-AdBlock uses a temporary cookie that is stored on your computer to "
 "disable the adblocker alert for a certain time. Further data are not "
@@ -112,21 +121,21 @@ msgstr ""
 "einen Adblocker installiert hat, wird generell kein entsprechender Cookie "
 "auf dem Gerät des Nutzers gespeichert."
 
-#: pro-adblock.php:192
+#: pro-adblock.php:215
 msgid "Pro-AdBlock Plugin"
 msgstr "Pro-AdBlock Plugin"
 
-#: pro-adblock.php:196
+#: pro-adblock.php:220
 msgid "Display a custom text to users that have no adblocker enabled."
 msgstr ""
 "Zeige Lesern, die keinen Adblocker installiert haben, einen individuellen "
 "Text."
 
-#: pro-adblock.php:204
+#: pro-adblock.php:228
 msgid "Pro-AdBlock Settings"
 msgstr "Einstellungen &rsaquo; Pro-AdBlock"
 
-#: pro-adblock.php:231
+#: pro-adblock.php:257
 msgid ""
 "<h2>You are not using an Adblocker?!</h2>\n"
 "\n"
