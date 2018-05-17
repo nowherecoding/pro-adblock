@@ -237,7 +237,7 @@ function padb_get_option( $value ) {
 	);
 
 	$options = get_option( 'padb2_settings' );
-	$output	 = !empty( $options ) ? $options[$value] : $defaults[$value];
+	$output	 = array_key_exists( $value, $options ) ? $options[$value] : $defaults[$value];
 
 	return $output;
 }
