@@ -40,19 +40,22 @@ define( 'PADB_MIN_WP_VERSION', '4.9.6' );
 // load the plugin's translated strings
 add_action( 'init', 'padb_load_textdomain' );
 
+/**
+ * Load plugin textdomain
+ */
 function padb_load_textdomain() {
 	load_plugin_textdomain( 'pro-adblock', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 }
 
 /**
- * Styles enqueueing
+ * Enqueue plugin styles
  */
 function padb_stylesheets() {
 	wp_enqueue_style( 'pro-adblock', PADB_URL . 'padb-style.css', false, PADB_VERSION, 'all' );
 }
 
 /**
- * Scripts enqueueing
+ * Enqueue plugin scripts
  */
 function padb_javascripts() {
 	$js = '<!-- Pro-AdBlock Javascript variables -->
@@ -63,7 +66,7 @@ function padb_javascripts() {
 }
 
 /**
- * Overlay generation
+ * Generate modal overlay
  */
 function padb_overlay() {
 	// Don't display the modal on pages to access the privacy policy freely
@@ -123,10 +126,16 @@ function padb_wp_upgrade_notice() {
 	}
 }
 
+/**
+ * Add plugin link to admin menu
+ */
 function padb_add_admin_menu() {
 	add_options_page( 'Pro-AdBlock Settings', 'Pro-AdBlock', 'manage_options', 'pro-adblock-options', 'padb_options_page' );
 }
 
+/**
+ * Initiate plugin settings
+ */
 function padb_settings_init() {
 	register_setting( 'pluginPage1', 'padb2_settings' );
 	register_setting( 'pluginPage2', 'padb2_settings' );
@@ -140,14 +149,20 @@ function padb_settings_init() {
 	add_settings_field( 'cookie_expiry', __( 'Cookie lifetime', 'pro-adblock' ), 'padb_cookie_expiry_render', 'pluginPage2', 'padb_pluginPage_section_1' );
 }
 
+/**
+ * Add option for modal message
+ */
 function padb_message_render() {
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Text', 'pro-adblock' ); ?></span></legend>
-		<textarea rows='10' cols='50' name='padb2_settings[modal_message]' class='large-text code'><?php echo padb_get_option( 'modal_message' ); ?></textarea>
+		<textarea rows='15' cols='50' name='padb2_settings[modal_message]' class='large-text code'><?php echo padb_get_option( 'modal_message' ); ?></textarea>
 	</fieldset>
 	<?php
 }
 
+/**
+ * Add option for modal background style
+ */
 function padb_select_modal_style_render() {
 	?>
 	<fieldset><legend class="screen-reader-text"><span><?php _e( 'Modal background', 'pro-adblock' ); ?></span></legend>
@@ -158,7 +173,7 @@ function padb_select_modal_style_render() {
 }
 
 /**
- * Modal delay
+ * Add option for modal delay
  */
 function padb_modal_delay_render() {
 	?>
@@ -169,7 +184,7 @@ function padb_modal_delay_render() {
 }
 
 /**
- * Cookie lifetime
+ * Add option for cookie lifetime
  */
 function padb_cookie_expiry_render() {
 	?>
@@ -216,12 +231,23 @@ function padb_add_privacy_policy_content() {
 	}
 }
 
+/**
+ * Get message settings callback
+ */
 function padb_settings_section_callback_1() {
 	echo __( 'Display a custom text to users that have no adblocker enabled.', 'pro-adblock' );
 }
 
-function padb_settings_section_callback_2() {}
+/**
+ * Get appearance settings callback
+ */
+function padb_settings_section_callback_2() {
+	// currently empty
+}
 
+/**
+ * Generate plugin options page
+ */
 function padb_options_page() {
 	?>
 	<div class="wrap">
@@ -246,7 +272,7 @@ function padb_options_page() {
 }
 
 /**
- * Plugin settings
+ * Get plugin settings
  *
  * @param type $value
  * @return type
