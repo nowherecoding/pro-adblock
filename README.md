@@ -16,7 +16,7 @@ Advertising displayed on webpages can be a security risk. Currently, the adverti
 
 ## Changelog
 
-### v2.0.0-beta
+### v2.0.0
 * Custom CSS colors removed to fit modal into installed theme styles
 * Modal elements completely redesigned
 * Privacy policy options added

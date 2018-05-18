@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: NowhereCoding
   Author URI: https://github.com/nowherecoding/
-  Version: 2.0.0-beta
+  Version: 2.0.0
   Text Domain: pro-adblock
   License: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'PADB_VERSION', '2.0.0-beta' );
+define( 'PADB_VERSION', '2.0.0' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 define( 'PADB_MIN_WP_VERSION', '4.9.6' );
 
