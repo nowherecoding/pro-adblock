@@ -277,7 +277,7 @@ function padb_options_page() {
  * @param type $value
  * @return type
  */
-function padb_get_option( $value ) {
+function padb_get_option( $key ) {
 	// load default options if no entry in database
 	$defaults = array(
 		'modal_message'	 => __( "<h2>You are not using an Adblocker?!</h2>\n\nAdvertising displayed on webpages can be a security risk. Currently, the advertising mostly consists of embedded third party content. These contents are not under the website's owner editorial control and add a repeatedly criminally exploited attack vector to the website. An adblocker protects your surfing. This site explicitly supports the usage of advertisement blockers. Please consider to use one! A list of adblockers is available on the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/#list\" target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n\nThank you for your attention.", 'pro-adblock' ),
@@ -286,8 +286,7 @@ function padb_get_option( $value ) {
 		'cookie_expiry'	 => 7,
 	);
 
-	$options = get_option( 'padb2_settings' );
-	$output	 = array_key_exists( $value, $options ) ? $options[$value] : $defaults[$value];
-
-	return $output;
+	$options = get_option( 'padb2_settings', $defaults );
+	
+	return $options[$key];
 }
