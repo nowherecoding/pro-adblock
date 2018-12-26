@@ -5,7 +5,7 @@
   Description: Displays an overlay to users when no adblocker is enabled.
   Author: NowhereCoding
   Author URI: https://github.com/nowherecoding/
-  Version: 2.0.0
+  Version: 2.0.1
   Text Domain: pro-adblock
   License: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Constants
-define( 'PADB_VERSION', '2.0.0' );
+define( 'PADB_VERSION', '2.0.1' );
 define( 'PADB_URL', plugin_dir_url( __FILE__ ) );
 define( 'PADB_MIN_WP_VERSION', '4.9.6' );
 
@@ -95,7 +95,7 @@ function padb_overlay() {
  * Display a link to the privacy policy
  * This is available only in WP 4.9.6+ and if you have generated a privacy police page in the settings
  *
- * @return type
+ * @return string
  */
 function padb_privacy_policy_link() {
 	if ( function_exists( 'get_privacy_policy_url' ) and ! empty( get_option( 'wp_page_for_privacy_policy' ) ) ) {
@@ -199,8 +199,8 @@ function padb_cookie_expiry_render() {
  *
  * @since WP 4.9.6
  *
- * @param type $descr
- * @return type
+ * @param boolean $descr
+ * @return string
  */
 function padb_get_default_privacy_content( $descr = false ) {
 
@@ -274,8 +274,8 @@ function padb_options_page() {
 /**
  * Get plugin settings
  *
- * @param type $value
- * @return type
+ * @param string $key
+ * @return mixed
  */
 function padb_get_option( $key ) {
 	// load default options if no entry in database

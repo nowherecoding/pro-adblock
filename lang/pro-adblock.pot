@@ -1,0 +1,134 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Pro-AdBlock\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-26 18:49+0100\n"
+"PO-Revision-Date: 2018-05-17 13:01+0200\n"
+"Last-Translator: NowhereCoding\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: pro-adblock.php:80
+msgid ""
+"By closing this notice you agree to our cookie policy. Pro-AdBlock uses a "
+"temporary cookie that is stored on your computer to disable the adblocker "
+"alert for a certain time. Further data are not collected."
+msgstr ""
+
+#: pro-adblock.php:81
+msgid "Accept &amp; continue"
+msgstr ""
+
+#: pro-adblock.php:99
+#, php-format
+msgid "For more information visit our %s."
+msgstr ""
+
+#: pro-adblock.php:121
+#, php-format
+msgid ""
+"Pro-AdBlock requires at least WP version %1$s to get fully functional. You "
+"are running version %2$s. Please upgrade WordPress."
+msgstr ""
+
+#: pro-adblock.php:134
+msgid "Message"
+msgstr ""
+
+#: pro-adblock.php:135 pro-adblock.php:145
+msgid "Text"
+msgstr ""
+
+#: pro-adblock.php:137
+msgid "Appearance"
+msgstr ""
+
+#: pro-adblock.php:138 pro-adblock.php:153
+msgid "Modal background"
+msgstr ""
+
+#: pro-adblock.php:139 pro-adblock.php:165
+msgid "Modal delay"
+msgstr ""
+
+#: pro-adblock.php:140 pro-adblock.php:176
+msgid "Cookie lifetime"
+msgstr ""
+
+#: pro-adblock.php:154
+msgid "Dark transparent"
+msgstr ""
+
+#: pro-adblock.php:155
+msgid "Light transparent"
+msgstr ""
+
+#: pro-adblock.php:166
+msgid "Waiting time in seconds before message appears"
+msgstr ""
+
+#: pro-adblock.php:177
+msgid "Time in days after cookie gets auto deleted"
+msgstr ""
+
+#: pro-adblock.php:192
+msgid "Suggested text:"
+msgstr ""
+
+#: pro-adblock.php:197
+msgid "What personal data we collect and why we collect it"
+msgstr ""
+
+#: pro-adblock.php:198
+msgid ""
+"We use the plugin Pro-AdBlock based on our legitimate interests within the "
+"meaning of Art. 6 (1) lit. f GDPR, because with the help of Pro-AdBlock we "
+"alert users about the dangers of surfing without an adblocker browser plug-"
+"in and offer them the opportunity to install one."
+msgstr ""
+
+#: pro-adblock.php:199
+msgid ""
+"Pro-AdBlock uses a temporary cookie that is stored on your computer to "
+"disable the adblocker alert for a certain time. Further data are not "
+"collected. If a user has installed an adblocker, generally no associated "
+"cookie will be stored on the user's device."
+msgstr ""
+
+#: pro-adblock.php:215
+msgid "Pro-AdBlock Plugin"
+msgstr ""
+
+#: pro-adblock.php:220
+msgid "Display a custom text to users that have no adblocker enabled."
+msgstr ""
+
+#: pro-adblock.php:228
+msgid "Pro-AdBlock Settings"
+msgstr ""
+
+#: pro-adblock.php:257
+msgid ""
+"<h2>You are not using an Adblocker?!</h2>\n"
+"\n"
+"Advertising displayed on webpages can be a security risk. Currently, the "
+"advertising mostly consists of embedded third party content. These contents "
+"are not under the website's owner editorial control and add a repeatedly "
+"criminally exploited attack vector to the website. An adblocker protects "
+"your surfing. This site explicitly supports the usage of advertisement "
+"blockers. Please consider to use one! A list of adblockers is available on "
+"the <strong><a href=\"https://nowherecoding.github.io/pro-adblock/#list\" "
+"target=\"_blank\">Pro-AdBlock Homepage</a></strong>.\n"
+"\n"
+"Thank you for your attention."
+msgstr ""
